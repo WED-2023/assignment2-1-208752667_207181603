@@ -14,9 +14,9 @@
         <button class="dropdown_button">Hello {{ $root.store.username }}</button>
         <div class="dropdown_content">
           <button id="logout_button" @click="Logout">Logout</button>
-          <router-link :to="{ name: 'MyFavoriteRecipes' }">My Favorite Recipes</router-link>
+          <router-link :to="{ name: 'MyFavoriteRecipes' }">Favorites</router-link>
           <router-link :to="{ name: 'MyRecipes' }">My Recipes</router-link>
-          <router-link :to="{ name: 'MyFamilyRecipes' }">My Family Recipes</router-link>
+          <router-link :to="{ name: 'MyFamilyRecipes' }">Family Recipes</router-link>
         </div>
       </span>
     </div>
@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style scoped>
+
 #nav {
   background-color: rgb(183, 222, 228);
 	position: fixed;
@@ -50,21 +51,20 @@ export default {
   justify-content: space-around;
 }
 
-#nav a {
+a {
   font-weight: bold;
   color: #2c3e50;
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #ffffff;
 }
 
 /* Style The Dropdown Button */
 .dropdown_button {
   font-weight: bold;
-  background-color: rgb(138, 221, 233);;
-  color: white;
-  padding: 15px;
+  background-color: rgb(138, 221, 233);
+  padding: 16px;
 	border-radius: 0px 0px 5px 5px;
 }
 
@@ -80,16 +80,32 @@ export default {
   position: absolute;
   background-color: rgb(183, 222, 228);
   min-width: 100%;
-  align-items: center;
+  border-radius: 5px 5px 5px 5px;
 }
 
 /* Links inside the dropdown */
 .dropdown_content a {
-  padding: 12px 16px;
+  padding-left: 16px;
+  padding-top: 5px;
   display: block;
 }
 
-.dropdown_content a:hover {background-color: #f1f1f1}
-.dropdown_content button:hover {background-color: #f1f1f1}
+#logout_button {
+  border: none;
+  display: block;
+  background-color: transparent;
+  font-weight: bold;
+  text-align: center;
+  padding-left: 16px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#logout_button:hover {
+  color: white;
+  text-decoration: underline;
+}
+.dropdown_content a:hover {color: white;}
 .dropdown:hover .dropdown_content {display: block;}
 </style>
