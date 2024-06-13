@@ -27,7 +27,7 @@ export default {
   },
   data() {
     return {
-      image_load: false
+      image_load: true
     };
   },
   props: {
@@ -71,11 +71,6 @@ export default {
   position: relative;
   margin: 10px 10px;
 }
-.recipe-preview > .recipe-body {
-  width: 100%;
-  height: 200px;
-  position: relative;
-}
 
 .recipe-preview .recipe-body .recipe-image {
   margin-left: auto;
@@ -90,11 +85,7 @@ export default {
   background-size: cover;
 }
 
-.recipe-preview .recipe-footer {
-  width: 100%;
-  height: 50%;
-  overflow: hidden;
-}
+
 
 .recipe-preview .recipe-footer .recipe-title {
   padding: 10px 10px;

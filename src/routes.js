@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: "/search",
-    name: "search",
+    name: "Search",
     component: () => import("./pages/SearchPage"),
   },
   {
@@ -33,7 +33,7 @@ const routes = [
     component: () => import("./pages/AboutPage"),
   },
   {
-    path: "   ",
+    path: "/createrecipe",
     name: "CreateRecipe",
     component: () => import("./pages/CreateRecipePage"),
   },
