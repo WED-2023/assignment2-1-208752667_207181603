@@ -1,7 +1,7 @@
 <template>
     <div>
   <b-navbar toggleable="lg" type="dark" variant="primary">
-    <b-navbar-brand :to="{ name: 'main' }">
+    <b-navbar-brand :to="{ name: 'main' }" id="brand_icon">
       <img src="../assets/logo.png" width="40px" alt="Home">
     </b-navbar-brand>
 
@@ -60,6 +60,19 @@ export default {
 
 a.router-link-exact-active {
   color: #ffffff;
+}
+#brand_icon
+{
+  padding: 5px;
+	height: 100%;
+	transition: transform 1s;
+}
+
+
+#brand_icon:hover
+{
+	transform: rotate(360deg);
+	transition: transform 1.5s;
 }
 
 </style>

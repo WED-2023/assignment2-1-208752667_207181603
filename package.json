@@ -9,6 +9,7 @@
     "@floating-ui/vue": "^1.0.6",
     "axios": "^0.19.2",
     "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3",
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
     "cors": "^2.8.5",

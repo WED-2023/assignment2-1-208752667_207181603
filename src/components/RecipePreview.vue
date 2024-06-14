@@ -1,22 +1,24 @@
 <template>
-  <router-link
-    :to="{ name: 'recipe', params: { recipeId: recipe.id } }"
-    class="recipe-preview"
-  >
-    <div class="recipe-body">
-      <img v-if="image_load" :src="recipe.image" class="recipe-image" />
-    </div>
-    <div class="recipe-footer">
-      <div :title="recipe.title" class="recipe-title">
-        {{ recipe.title }}
-      </div>
-      <ul class="recipe-overview">
-        <li>{{ recipe.readyInMinutes }} minutes</li>
-        <li>{{ recipe.aggregateLikes }} likes</li>
-      </ul>
-    </div>
-  </router-link>
-</template>
+  <div>
+  <b-card style="min-width: 25rem;" class="mb-2">
+    <router-link :to="{ name: 'recipe', params: { recipeId: recipe.id } }" class="recipe-preview">
+      <b-card-img :src="recipe.image" img-alt="Card image" img-top></b-card-img>
+      <b-card-title>{{ recipe.title }} </b-card-title>
+    </router-link>
+    <b-card-sub-title>{{ recipe.summary }}</b-card-sub-title>
+    
+    <template #footer>
+      <img src="https://cdn3.iconfinder.com/data/icons/eyes-glyph-1/32/Check_eye_Watched_Access_View_Seen_eye-512.png" width="20px" alt="like">
+      <small class="text-muted"> | Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
+      <img src="../assets/like.png" width="13px" alt="like">
+      <small class="text-muted"> | </small> 
+      <img src="../assets/gluten-free-icon.png" width="30px" alt="gluten" v-if="recipe.glutenFree"> 
+      <img src="https://clipground.com/images/vegan-png-7.png" width="30px" alt="vegen" v-if="recipe.vegan"> 
+      <img src="https://cdn1.iconfinder.com/data/icons/flat-green-organic-natural-badges/500/Vegetarian-2-512.png" width="30px" alt="vegetarian" v-if="recipe.vegetarian">
+    </template>
+  </b-card>
+</div>
+</template>  
 
 <script>
 export default {
