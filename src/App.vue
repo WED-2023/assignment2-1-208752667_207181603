@@ -23,7 +23,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #000000;
-  background-color: rgb(251, 234, 142);
+  background-color: white;
   min-height: 100vh;
 }
 

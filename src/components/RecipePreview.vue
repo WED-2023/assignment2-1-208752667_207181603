@@ -1,7 +1,7 @@
 <template>
   <div>
   <b-card style="min-width: 25rem;" class="mb-2">
-    <router-link :to="{ name: 'recipe', params: { recipeId: recipe.id } }" class="recipe-preview">
+    <router-link :to="{ name: 'recipe', params: { id: recipe.id } }" class="recipe-preview">
       <b-card-img :src="recipe.image" img-alt="Card image" img-top></b-card-img>
       <b-card-title>{{ recipe.title }} </b-card-title>
     </router-link>

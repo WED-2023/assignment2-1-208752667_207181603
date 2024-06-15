@@ -38,6 +38,9 @@
     </pre
       > -->
     </div>
+    <div v-else>
+      <h1>Didn't find bud</h1>
+    </div>
   </div>
 </template>
 
@@ -51,23 +54,22 @@ export default {
   },
   async created() {
     try {
-      let response;
-      // response = this.$route.params.response;
+      let recipe_received;
+      // recipe_received = this.$route.params.recipe_received;
 
       try {
-        // response = await this.axios.get(
+        // recipe_received = await this.axios.get(
         //   this.$root.store.server_domain + "/recipes/" + this.$route.params.recipeId,
         //   {
         //     withCredentials: true
         //   }
         // );
 
-        response = mockGetRecipeFullDetails(this.$route.params.recipeId);
+        recipe_received = mockGetRecipeFullDetails(this.$route.params.recipeId);
 
-        // console.log("response.status", response.status);
-        if (response.status !== 200) this.$router.replace("/NotFound");
+        if (recipe_received.status !== 200) this.$router.replace("/NotFound");
       } catch (error) {
-        console.log("error.response.status", error.response.status);
+        console.log("error.recipe_received.status", error.recipe_received.status);
         this.$router.replace("/NotFound");
         return;
       }
@@ -80,7 +82,7 @@ export default {
         readyInMinutes,
         image,
         title
-      } = response.data.recipe;
+      } = recipe_received.respose.data.recipe;
 
       let _instructions = analyzedInstructions
         .map((fstep) => {

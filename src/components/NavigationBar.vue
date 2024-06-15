@@ -1,6 +1,6 @@
 <template>
     <div>
-  <b-navbar toggleable="lg" type="dark" variant="primary">
+  <b-navbar toggleable="lg" type="dark" variant="warning" z-index="10">
     <b-navbar-brand :to="{ name: 'main' }" id="brand_icon">
       <img src="../assets/logo.png" width="40px" alt="Home">
     </b-navbar-brand>
