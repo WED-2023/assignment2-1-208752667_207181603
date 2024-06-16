@@ -1,6 +1,6 @@
 <template>
     <div>
-  <b-navbar toggleable="lg" type="dark" variant="warning" z-index="10">
+  <b-navbar toggleable="lg" type="dark" variant="warning" style="position: fixed; width: 100%; z-index: 10;">
     <b-navbar-brand :to="{ name: 'main' }" id="brand_icon">
       <img src="../assets/logo.png" width="40px" alt="Home">
     </b-navbar-brand>
@@ -31,8 +31,8 @@
           <template #button-content>
             <em>Hello Guest</em>
           </template>
-          <b-dropdown-item variant="success" :to="{ name: 'login' }">Login</b-dropdown-item>
-          <b-dropdown-item variant="success" :to="{ name: 'register' }">Register</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'login' }">Login</b-dropdown-item>
+          <b-dropdown-item :to="{ name: 'register' }">Register</b-dropdown-item>
         </b-nav-item-dropdown>
         <b-nav-item :to="{ name: 'About' }" >About</b-nav-item>
 
@@ -58,7 +58,18 @@ export default {
 
 <style scoped>
 
+em {
+  color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+
+/* style to active router-link */
+
 a.router-link-exact-active {
+  font-weight: bold;
   color: #ffffff;
 }
 #brand_icon
