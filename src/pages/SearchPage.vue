@@ -1,72 +1,16 @@
 <template>
   <div class="container">
-    <h1 class="title">Search Page</h1>
+    <h1 class="title">Search Recipes</h1>
     <div>
-    <b-collapse id="advance-search-collapse">
-      <b-card id="advance-search-card">
-        <b-form id="form-cards">
-          <b-card class="advance-card">
-            <h4>Intolerances:</h4>
-            <b-form-checkbox
-                v-model="allIntolerancesSelected"
-                :indeterminateIntolerances="indeterminateIntolerances"
-                aria-describedby="intolerancesChoices"
-                aria-controls="intolerancesChoices"
-                @change="toggleAllIntolerances">
-                {{ allIntolerancesSelected ? 'Un-select All' : 'Select All' }}
-              </b-form-checkbox>
-            <b-card class="check-list">
-              <b-form-checkbox-group id="intolerances"
-                v-model="selectedIntolerances"
-                :options="intolerancesChoices"
-                :aria-describedby="ariaDescribedby"
-                name="intolerances"
-                class="ml-4"
-                aria-label="Individual intolerancesChoices"
-                stacked
-                ></b-form-checkbox-group>
-            </b-card>
-            <div v-if="selectedIntolerances.length > 0" class="selected-list">
-              <ul>
-                <li v-for="(choice, index) in selectedIntolerances" :key="index">{{ choice }}</li>
-              </ul>
-            </div>
-          </b-card>
-          <b-card class="advance-card">
-            <h5>Check List:</h5>
-            <b-card class="check-list">
-              <div v-for="(choice, index) in choices" :key="index" class="check-item">
-                <input class="form-checkbox" type="checkbox" :id="'choice-' + index" :value="choice" v-model="selectedChoices"/>
-                <label class="form-check-label" :for="'choice-' + index">{{ choice }}</label>
-              </div>
-            </b-card>
-            <b-button pill @click="resetChoices" variant="warning">Reset</b-button>
-            <div v-if="selectedChoices.length > 0" class="selected-list">
-              <h5>Selected Choices:</h5>
-              <ul>
-                <li v-for="(choice, index) in selectedIntolerances" :key="index">{{ choice }}</li>
-              </ul>
-            </div>
-          </b-card>
-          <b-card class="advance-card">
-            <h5>Check List:</h5>
-            <b-card class="check-list">
-              <div v-for="(choice, index) in choices" :key="index" class="check-item">
-                <input class="form-checkbox" type="checkbox" :id="'choice-' + index" :value="choice" v-model="selectedChoices"/>
-                <label class="form-check-label" :for="'choice-' + index">{{ choice }}</label>
-              </div>
-            </b-card>
-            <b-button pill @click="resetChoices" variant="warning">Reset</b-button>
-            <div v-if="selectedChoices.length > 0" class="selected-list">
-              <h5>Selected Choices:</h5>
-              <ul>
-                <li v-for="(choice, index) in selectedChoices" :key="index">{{ choice }}</li>
-              </ul>
-            </div>
-          </b-card>
-        </b-form>
-      </b-card>
-    </b-collapse>
+      <b-collapse id="advance-search-collapse">
+        <b-card id="advance-search-card">
+          <b-form id="form-cards">
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Intolerances" :choices="intolerancesChoices"/>
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Diets" :choices="dietsChoices"/>
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Cuisines" :choices="cuisinesChoices"/>
+          </b-form>
+        </b-card>
+      </b-collapse>
   </div>
     <div class="search-bar">
       <input type="text" v-model="query" @input="onSearch" placeholder="Search Recipes..."/>
@@ -86,10 +30,15 @@
 </template>
 
 <script>
+import MultipleChoiceFilter from "../components/MultipleChoiceFilter";
 import RecipePreviewList from "../components/RecipePreviewList";
 import intolerances from "../assets/intolerances";
+import diets from "../assets/diets";
+import cuisines from "../assets/cuisines";
+
 export default {
   components: {
+    MultipleChoiceFilter,
     RecipePreviewList
   },
   data() {
@@ -98,6 +47,8 @@ export default {
       limit: 5,
       results: [],
       intolerancesChoices: intolerances,
+      dietsChoices: diets,
+      cuisinesChoices: cuisines,
       selectedIntolerances: [],
       allIntolerancesSelected: false,
       indeterminateIntolerances: false,
@@ -113,33 +64,8 @@ export default {
   methods: {
     onSearch() {
       // Todo - complete search logic
-    },
-    resetIntolerances() {
-      this.selectedIntolerances = [];
-    },
-    resetChoices() {
-      this.selectedChoices = [];
-    },
-
-    toggleAllIntolerances(checked) {
-        this.selectedIntolerances = checked ? this.intolerancesChoices.slice() : []
-      }
-  },
-  watch: {
-    selectedIntolerances(newValue, oldValue) {
-        // Handle changes in individual flavour checkboxes
-        if (newValue.length === 0) {
-          this.indeterminateIntolerances = false
-          this.allIntolerancesSelected = false
-        } else if (newValue.length === this.intolerancesChoices.length) {
-          this.indeterminateIntolerances = false
-          this.allIntolerancesSelected = true
-        } else {
-          this.indeterminateIntolerances = true
-          this.allIntolerancesSelected = false
-        }
-      }
     }
+  }
 };
 </script>
 
@@ -147,7 +73,7 @@ export default {
 
 #advance-search-collapse {
   margin: auto;
-  width: 80%;
+  justify-content: center;
   margin-bottom: 20px;
 }
 
@@ -158,28 +84,20 @@ export default {
 #form-cards {
   display: flex;
   flex-direction: row; /* Place elements in a row */
+  justify-content: center; /* Center elements horizontally */
   align-items: center;
   gap: 1rem; /* Adds space between each select element */
 }
 
-.advance-card {
-  width: 100%;
-  height: 320px;
-}
-
-.check-list {
-  height: 130px;
-  margin-bottom: 20px;
-  overflow-y: auto;
-}
-.selected-list {
-  height: 70px;
-  overflow-y: auto;
+.AdvanceSearcher {
+  flex-grow: 1; /* Allow the elements to grow */
+  max-width: 100%; /* Ensure elements do not exceed the container's width */
+  width: 100%; /* Set the initial width to 100% */
 }
 
 .search-bar {
   margin: auto;
-  width: 80%;
+  width: 100%;
   display: flex;
   align-items: center;
   margin-bottom: 20px;
