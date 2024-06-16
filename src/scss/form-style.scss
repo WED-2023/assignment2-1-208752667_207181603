@@ -1,7 +1,20 @@
 h1 {
-    font-size: 80px;
-    text-align: center;
-    padding: 50px 0px 0px;
+    padding: 50px 0px 30px;
     margin-top: 20px;
-    margin-bottom: 0px;
-}
+    font-family: 'Arial Black', sans-serif; /* Balloonish font */
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0; /* Vertical margins */
+  
+    /* Gradient text */
+    background: linear-gradient(135deg, #ee9209, #fff7f1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  
+    /* Text shadow for a subtle 3D effect */
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  
+    /* Slightly rounded corners for a softer look */
+    border-radius: 10px;
+  }
+  

@@ -1,26 +1,32 @@
 <template>
   <div>
-  <b-card style="min-width: 25rem;" class="mb-2">
-    <router-link :to="{ name: 'recipe', params: { id: recipe.id } }" class="recipe-preview">
-      <b-card-img :src="recipe.image" img-alt="Card image" img-top></b-card-img>
-      <b-card-title>{{ recipe.title }} </b-card-title>
-    </router-link>
-    <b-card-sub-title>{{ recipe.summary }}</b-card-sub-title>
-    
-    <template #footer>
-      <img src="https://cdn3.iconfinder.com/data/icons/eyes-glyph-1/32/Check_eye_Watched_Access_View_Seen_eye-512.png" width="20px" alt="like">
-      <small class="text-muted"> | Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
-      <img src="../assets/like.png" width="13px" alt="like">
-      <small class="text-muted"> | </small> 
-      <img src="../assets/gluten-free-icon.png" width="30px" alt="gluten" v-if="recipe.glutenFree"> 
-      <img src="https://clipground.com/images/vegan-png-7.png" width="30px" alt="vegen" v-if="recipe.vegan"> 
-      <img src="https://cdn1.iconfinder.com/data/icons/flat-green-organic-natural-badges/500/Vegetarian-2-512.png" width="30px" alt="vegetarian" v-if="recipe.vegetarian">
-    </template>
-  </b-card>
-</div>
+    <b-card style="min-width: 25rem;" class="mb-2">
+      <router-link :to="{ name: 'recipe', params: { id: recipe.id } }" class="recipe-preview">
+        <b-card-img :src="recipe.image" img-alt="Card image" img-top></b-card-img>
+        <b-card-title>{{ recipe.title }} </b-card-title>
+      </router-link>
+      <b-button :pressed.sync="inFavorites" variant="outline-warning" class="mb-2"  @click="favoritesAction">
+        <b-icon v-if="inFavorites" icon="star-fill" aria-hidden="true" class=""></b-icon>
+        <b-icon v-else icon="star" aria-hidden="true" class=""></b-icon>
+        Add to Favorites
+      </b-button>
+      <b-card-sub-title>{{ recipe.summary }}</b-card-sub-title>
+      <template #footer>
+        <img src="https://cdn3.iconfinder.com/data/icons/eyes-glyph-1/32/Check_eye_Watched_Access_View_Seen_eye-512.png" width="20px" alt="seen" title="You already viewed this recipe">
+        <small class="text-muted"> | Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
+        <img src="../assets/like.png" width="13px" alt="like">
+        <small class="text-muted"> | </small> 
+        <img src="../assets/gluten-free-icon.png" width="30px" alt="gluten" v-if="recipe.glutenFree" title="Gluten Free"> 
+        <img src="https://clipground.com/images/vegan-png-7.png" width="30px" alt="vegen" v-if="recipe.vegan" title="Vegan"> 
+        <img src="https://cdn1.iconfinder.com/data/icons/flat-green-organic-natural-badges/500/Vegetarian-2-512.png" width="30px" alt="vegetarian" v-if="recipe.vegetarian" title="Vegetarian">
+      </template>
+    </b-card>
+    </div>
 </template>  
 
 <script>
+import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../services/user';
+
 export default {
   mounted() {
     this.axios.get(this.recipe.image).then((i) => {
@@ -29,7 +35,8 @@ export default {
   },
   data() {
     return {
-      image_load: true
+      image_load: true,
+      inFavorites: mockIsInFavoites(this.recipe.id).response.data.inFavorites
     };
   },
   props: {
@@ -61,6 +68,18 @@ export default {
     //     return undefined;
     //   }
     // }
+  },
+  methods: {
+    favoritesAction() {
+      // Add or remove from favorites based on current state
+      if (this.inFavorites) {
+        const response = mockRemoveFavorite(this.recipe.id);
+      } else {
+        const response = mockAddFavorite(this.recipe.id);
+      }
+      this.$root.toast("'this.recipe.title'", response.response.data.message, "success");
+      this.inFavorites = !this.inFavorites;
+    }
   }
 };
 </script>

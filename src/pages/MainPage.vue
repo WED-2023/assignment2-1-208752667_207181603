@@ -1,44 +1,50 @@
 <template>
   <div class="container">
     <h1 class="title">Grammy's Goodies</h1>
-    <RecipePreviewList title="Randome Recipes" class="RandomRecipes center" />
-    <router-link v-if="!$root.store.username" to="/login" tag="button">You need to Login to vue this</router-link>
-    <RecipePreviewList
-      title="Last Viewed Recipes"
-      :class="{
-        RandomRecipes: true,
-        blur: !$root.store.username,
-        center: true
-      }"
-      disabled
-    ></RecipePreviewList>
-    <!-- <div
-      style="position: absolute;top: 70%;left: 50%;transform: translate(-50%, -50%);"
-    >
-      Centeredasdasdad
-    </div>-->
+    <b-row>
+      <b-col>
+        <b-card>
+          <div class="random-recipes">
+        <h2>Random Recipes</h2>
+        <b-button variant="outline-warning" @click="updateRandomRecipes">Load New Recipes</b-button>
+        <RecipePreviewList amountToFetch="3" ref="randomRecipes" />
+      </div>
+        </b-card>
+      </b-col>
+      <b-col>
+        <b-card class="user-specific-card">
+          <LoginWindow v-if="!$root.store.username"/>
+          <RecipePreviewList v-else amountToFetch="3" title="Last Viewed Recipes" />
+        </b-card>
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
 import RecipePreviewList from "../components/RecipePreviewList";
+import LoginWindow from "../components/LoginWindow";
 export default {
   components: {
-    RecipePreviewList
+    RecipePreviewList,
+    LoginWindow
+  },
+  methods: {
+    updateRandomRecipes() {
+      this.$refs.randomRecipes.updateRecipes();
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.RandomRecipes {
-  margin: 10px 0 10px;
+.random-recipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.blur {
-  -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
-  filter: blur(2px);
-}
-::v-deep .blur .recipe-preview {
-  pointer-events: none;
-  cursor: default;
+.user-specifc-card {
+  height: 530px;
+  width: 550px;
 }
 </style>

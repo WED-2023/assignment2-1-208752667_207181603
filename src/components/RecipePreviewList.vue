@@ -1,8 +1,7 @@
 <template>
   <b-container>
-    <h3>
+    <h3 v-if="title">
       {{ title }}:
-      <slot></slot>
     </h3>
     <b-row>
       <b-col v-for="r in recipes" :key="r.id">
@@ -42,13 +41,12 @@ export default {
     this.updateRecipes();
   },
   methods: {
-    async updateRecipes() {
+    updateRecipes() {
       try {
         // const response = await this.axios.get(
         //   this.$root.store.server_domain + "/recipes/random",
         // );
-
-        const amountToFetch = 6; // Set this to how many recipes you want to fetch
+        const amountToFetch = this.amountToFetch; // Set this to how many recipes you want to fetch
         const response = mockGetRecipesPreview(amountToFetch);
 
 
@@ -68,5 +66,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   min-height: 400px;
+}
+h3 {
+  text-align: center;
 }
 </style>
