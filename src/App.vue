@@ -2,6 +2,11 @@
   <div id="app">
     <NavigationBar />
     <router-view />
+    <b-modal id="create-recipe-modal" title="Create New Recipe">
+      <p class="my-4">
+        Recipe Content
+      </p>
+    </b-modal>
   </div>
 </template>
 

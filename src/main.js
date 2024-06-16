@@ -14,6 +14,7 @@ import Vuelidate from "vuelidate";
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 import {
+  ModalPlugin,
   FormGroupPlugin,
   FormCheckboxPlugin,
   FormPlugin,
@@ -29,6 +30,7 @@ import {
   IconsPlugin
 } from "bootstrap-vue";
 [
+  ModalPlugin,
   FormGroupPlugin,
   FormCheckboxPlugin,
   FormPlugin,
