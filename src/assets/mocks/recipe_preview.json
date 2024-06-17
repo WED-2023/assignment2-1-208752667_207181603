@@ -7,6 +7,74 @@
     "vegetarian": true,
     "vegan": true,
     "glutenFree": true,
-    "summary": "You can never have too many main course recipes, so give Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs a try."
-
+    "summary": "You can never have too many main course recipes, so give Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs a try.",
+    "ingredients":  [
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "breadcrumbs"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "olive oil"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "teaspoon",
+            "name": "black pepper"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "pound",
+            "name": "pasta"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "head",
+            "name": "cauliflower"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "olive oil"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "teaspoon",
+            "name": "black pepper"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "teaspoon",
+            "name": "red pepper flakes"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "scallions"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "garlic"
+        }
+    ],
+    "instructions": [
+        "Preheat oven to 400 degrees F. Toss breadcrumbs with 1/4 cup olive oil, salt and pepper. Spread on a baking sheet and bake for 10 minutes or until golden brown.",
+        "Bring a large pot of salted water to a boil. Add pasta and cook according to package directions. Drain and set aside.",
+        "Meanwhile, cut cauliflower into small florets. Toss with 1/4 cup olive oil, salt, pepper and red pepper flakes. Spread on a baking sheet and bake for 20 minutes or until golden brown.",
+        "In a large skillet, heat 1 tablespoon olive oil over medium heat. Add scallions and garlic and cook for 2 minutes. Add pasta, cauliflower and breadcrumbs. Toss to combine and serve."
+    ],
+    "servings": 2
 }

@@ -8,7 +8,7 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item :to="{ name: 'Search' }">Search</b-nav-item>
-          <b-nav-item v-b-modal.create-recipe-modal v-if="$root.store.username">Create New Recipe</b-nav-item>
+          <b-nav-item id="new-recipe-button" v-b-modal.create-recipe-modal v-if="$root.store.username">Create New Recipe</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
       <b-navbar-nav class="ml-auto">
@@ -56,6 +56,10 @@ em {
 }
 
 a {
+  color: #ffffff;
+}
+
+#new-recipe-button {
   color: #ffffff;
 }
 

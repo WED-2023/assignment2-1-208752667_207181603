@@ -1,20 +1,18 @@
 <template>
   <div id="app">
     <NavigationBar />
+    <NewRecipeModal/>
     <router-view />
-    <b-modal id="create-recipe-modal" title="Create New Recipe">
-      <p class="my-4">
-        Recipe Content
-      </p>
-    </b-modal>
   </div>
 </template>
 
 <script>
 import NavigationBar from "./components/NavigationBar";
+import NewRecipeModal from "./components/NewRecipeModal.vue";
 export default {
   components: {
-    NavigationBar
+    NavigationBar,
+    NewRecipeModal
   },
   name: "App",
 };

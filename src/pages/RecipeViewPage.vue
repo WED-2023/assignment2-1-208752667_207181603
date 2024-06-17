@@ -3,6 +3,7 @@
     <div v-if="recipe">
       <div class="recipe-header mt-3 mb-4">
         <h1>{{ recipe.title }}</h1>
+        <h2>{{ $route.params.id }}</h2>
         <img :src="recipe.image" class="center" />
       </div>
       <div class="recipe-body">
@@ -46,9 +47,14 @@
 
 <script>
 import { mockGetRecipeFullDetails } from "../services/recipes.js";
+import RecipePreview from "../components/RecipePreview.vue";
 export default {
+  components: {
+    RecipePreview
+  },
   data() {
     return {
+      recipeId: this.$route.params.id,
       recipe: null
     };
   },
@@ -64,7 +70,6 @@ export default {
         //     withCredentials: true
         //   }
         // );
-
         recipe_received = mockGetRecipeFullDetails(this.$route.params.recipeId);
 
         if (recipe_received.status !== 200) this.$router.replace("/NotFound");
