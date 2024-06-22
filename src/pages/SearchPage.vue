@@ -5,26 +5,29 @@
       <b-collapse id="advance-search-collapse">
         <b-card id="advance-search-card">
           <b-form id="form-cards">
-            <MultipleChoiceFilter class="AdvanceSearcher" title="Intolerances" :choices="intolerancesChoices"/>
-            <MultipleChoiceFilter class="AdvanceSearcher" title="Diets" :choices="dietsChoices"/>
-            <MultipleChoiceFilter class="AdvanceSearcher" title="Cuisines" :choices="cuisinesChoices"/>
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Intolerances" :choices="intolerancesChoices" @updateSelected="handleUpdateIntolerances"/>
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Diets" :choices="dietsChoices" @updateSelected="handleUpdateDiets"/>
+            <MultipleChoiceFilter class="AdvanceSearcher" title="Cuisines" :choices="cuisinesChoices" @updateSelected="handleUpdateCuisines"/>
           </b-form>
         </b-card>
       </b-collapse>
   </div>
     <div class="search-bar">
-      <input type="text" v-model="query" @input="onSearch" placeholder="Search Recipes..."/>
+      <input type="text" v-model="query" placeholder="Search Recipes..."/>
       <em>Requested Amount of Recipes: </em>
-      <b-form-select v-model="limit" @change="onSearch">
+      <b-form-select v-model="limit">
         <b-form-select-option value="5">5</b-form-select-option>
         <b-form-select-option value="10">10</b-form-select-option>
         <b-form-select-option value="15">15</b-form-select-option>
       </b-form-select>
       <b-button pill v-b-toggle="'advance-search-collapse'" variant="info">Advance Search</b-button>
-    <b-button pill @click="onSearch" variant="success">Search</b-button>
+      <b-button pill @click="getSearchResults" variant="success">Search</b-button>
     </div>
-    <div class="search-results">
-      <RecipePreviewList title="Search Results"/>
+    <div v-if = "results.length > 0" class="search-results">
+      <b-form-group label="Sort by">
+        <b-form-radio-group id="btn-radios-2" v-model="selected" :options="options" button-variant="outline-primary" buttons @change="sortRecipes"></b-form-radio-group>
+      </b-form-group>
+      <RecipePreviewList :title="'Search Results'" :recipes="results" :itemsPerRow="3"/>
     </div>
   </div>
 </template>
@@ -35,6 +38,7 @@ import RecipePreviewList from "../components/RecipePreviewList";
 import intolerances from "../assets/intolerances";
 import diets from "../assets/diets";
 import cuisines from "../assets/cuisines";
+import { mockGetSearchResults } from "../services/recipes.js";
 
 export default {
   components: {
@@ -49,21 +53,55 @@ export default {
       intolerancesChoices: intolerances,
       dietsChoices: diets,
       cuisinesChoices: cuisines,
-      selectedIntolerances: [],
-      allIntolerancesSelected: false,
-      indeterminateIntolerances: false,
-      choices: ["Option 1", "Option 2", "Option 3", "Option 4", "Option 5", "Option 6", "Option 7", "Option 8", "Option 9", "Option 10"],
-      selectedChoices: []
+      intolerancesSelected: [],
+      dietsSelected: [],
+      cuisinesSelected: [],
+      selected: 0,
+        options: [
+          { text: 'Likes', value: 0 },
+          { text: 'Cooking time', value: 1 }
+        ]
     };
   },
-  computed: {
-    limitedResults() {
-      return this.results.slice(0, this.limit);
-    }
-  },
   methods: {
-    onSearch() {
-      // Todo - complete search logic
+    sortRecipes() {
+      this.results.sort((a, b) => {
+        return (1 - this.selected) * (b.aggregateLikes - a.aggregateLikes) + this.selected * (a.readyInMinutes - b.readyInMinutes);
+      });
+    },
+    getSearchResults() {
+      let recipesList = [];
+      try {
+        // const response = await this.axios.get(
+        //   this.$root.store.server_domain + "/recipes/random",
+        // );
+
+        // Replace the mock
+        const response = mockGetSearchResults(this.query, this.limit, this.intolerancesSelected, this.dietsSelected, this.cuisinesSelected);
+        recipesList = response.data.recipes;
+      }
+      catch (error) {
+        console.log(error);
+      }
+      this.results = [];
+      this.results.push(...recipesList);
+      if(this.results.length === 0){
+        this.$root.toast("Searching " + this.query, "No results were found", false);
+      }
+      else{
+        this.results.sort((a, b) => {
+          return (1 - this.selected) * (b.aggregateLikes - a.aggregateLikes) + this.selected * (a.readyInMinutes - b.readyInMinutes);
+        });
+      }
+    },
+    handleUpdateIntolerances(newSelected){
+      this.intolerancesSelected = newSelected;
+    },
+    handleUpdateDiets(newSelected){
+      this.dietsSelected = newSelected;
+    },
+    handleUpdateCuisines(newSelected){
+      this.cuisinesSelected = newSelected;
     }
   }
 };

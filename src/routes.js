@@ -1,11 +1,11 @@
-import Main from "./pages/MainPage";
+import MainPage from "./pages/MainPage";
 import NotFound from "./pages/NotFoundPage";
 
 const routes = [
   {
     path: "/",
-    name: "main",
-    component: Main,
+    name: "MainPage",
+    component: MainPage,
   },
   {
     path: "/register",

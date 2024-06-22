@@ -5,16 +5,14 @@
       <b-col>
         <b-card>
           <div class="random-recipes">
-        <h2>Random Recipes</h2>
-        <b-button variant="outline-warning" @click="updateRandomRecipes">Load New Recipes</b-button>
-        <RecipePreviewList amountToFetch="3" ref="randomRecipes" />
-      </div>
+            <RandomRecipes />
+          </div>
         </b-card>
       </b-col>
       <b-col>
         <b-card class="user-specific-card">
           <LoginWindow v-if="!$root.store.username"/>
-          <RecipePreviewList v-else amountToFetch="3" title="Last Viewed Recipes" />
+          <LastViewedRecipes v-else/>
         </b-card>
       </b-col>
     </b-row>
@@ -22,27 +20,20 @@
 </template>
 
 <script>
-import RecipePreviewList from "../components/RecipePreviewList";
+import RandomRecipes from "../components/RandomRecipes";
+import LastViewedRecipes from "../components/LastViewedRecipes";
 import LoginWindow from "../components/LoginWindow";
 export default {
+  name: "MainPage",
   components: {
-    RecipePreviewList,
-    LoginWindow
-  },
-  methods: {
-    updateRandomRecipes() {
-      this.$refs.randomRecipes.updateRecipes();
-    }
+    RandomRecipes,
+    LoginWindow,
+    LastViewedRecipes
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.random-recipes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .user-specifc-card {
   height: 530px;
   width: 550px;

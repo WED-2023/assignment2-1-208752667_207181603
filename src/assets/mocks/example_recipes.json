@@ -1,0 +1,1104 @@
+[
+    {
+        "id": 716435,
+        "image": "https://www.allrecipes.com/thmb/ASRzxoRrPoMLQEpczFvU7osJNF4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21353-italian-spaghetti-sauce-with-meatballs-2x1-141-cedbb650b4264576ab923c91215ce7fc.jpg",
+        "title": "Classic Spaghetti and Meatballs",
+        "readyInMinutes": 60,
+        "aggregateLikes": 420,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "A timeless favorite, Classic Spaghetti and Meatballs is a hearty and satisfying meal perfect for any occasion.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "ground beef"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "breadcrumbs"
+            },
+            {
+                "quantity": 0.25,
+                "unit": "cup",
+                "name": "Parmesan cheese"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "egg"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "parsley"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "jar",
+                "name": "marinara sauce"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "spaghetti"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 400 degrees F. In a large bowl, combine ground beef, breadcrumbs, Parmesan cheese, egg, minced garlic, chopped parsley, salt, and pepper. Mix well and form into meatballs.",
+            "Place meatballs on a baking sheet and bake for 20 minutes, or until cooked through.",
+            "Meanwhile, cook spaghetti according to package directions. Drain and set aside.",
+            "Heat marinara sauce in a large saucepan over medium heat. Add cooked meatballs and simmer for 10 minutes.",
+            "Serve meatballs and sauce over spaghetti. Garnish with additional Parmesan cheese and parsley if desired."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716436,
+        "image": "https://www.yummyhealthyeasy.com/wp-content/uploads/2019/02/air-fryer-chicken-wings-recipe-1.jpg",
+        "title": "Air Fryer Chicken Wings",
+        "readyInMinutes": 35,
+        "aggregateLikes": 489,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": true,
+        "summary": "Crispy and flavorful, these Air Fryer Chicken Wings are the perfect snack or appetizer for any gathering.",
+        "ingredients": [
+            {
+                "quantity": 2.0,
+                "unit": "pound",
+                "name": "chicken wings"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "garlic powder"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "paprika"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "cayenne pepper"
+            },
+            {
+                "quantity": 0.25,
+                "unit": "cup",
+                "name": "hot sauce"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "butter"
+            }
+        ],
+        "instructions": [
+            "Preheat air fryer to 400 degrees F. In a large bowl, toss chicken wings with olive oil, salt, black pepper, garlic powder, paprika, and cayenne pepper.",
+            "Place wings in a single layer in the air fryer basket. Cook for 25 minutes, flipping halfway through, until wings are crispy and cooked through.",
+            "In a small saucepan, heat hot sauce and butter over low heat until butter is melted. Toss cooked wings in the sauce mixture.",
+            "Serve wings hot, with celery sticks and blue cheese dressing if desired."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716437,
+        "image": "https://assets.wholefoodsmarket.com/recipes/448/1024/768/448-3.jpg",
+        "title": "Hearty Minestrone Soup",
+        "readyInMinutes": 50,
+        "aggregateLikes": 302,
+        "vegetarian": true,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "This Hearty Minestrone Soup is packed with vegetables, beans, and pasta, making it a filling and nutritious meal.",
+        "ingredients": [
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "onion"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "carrot"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "celery"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "can",
+                "name": "diced tomatoes"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "can",
+                "name": "red kidney beans"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "can",
+                "name": "white beans"
+            },
+            {
+                "quantity": 6.0,
+                "unit": "cup",
+                "name": "vegetable broth"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "pasta"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cup",
+                "name": "spinach"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "Italian seasoning"
+            }
+        ],
+        "instructions": [
+            "In a large pot, heat olive oil over medium heat. Add chopped onion, carrot, and celery, and cook for 5-7 minutes until vegetables are softened.",
+            "Add minced garlic and cook for another minute.",
+            "Stir in diced tomatoes, kidney beans, white beans, vegetable broth, salt, black pepper, and Italian seasoning. Bring to a boil.",
+            "Add pasta and reduce heat to low. Simmer for 20 minutes or until pasta is cooked.",
+            "Stir in spinach and cook for another 5 minutes.",
+            "Serve hot with crusty bread."
+        ],
+        "servings": 6
+    },
+    {
+        "id": 716438,
+        "image": "https://www.thecandidcooks.com/wp-content/uploads/2023/01/teriyaki-chicken-rice-bowl-feature.jpg",
+        "title": "Teriyaki Chicken Bowls",
+        "readyInMinutes": 30,
+        "aggregateLikes": 410,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": true,
+        "summary": "These Teriyaki Chicken Bowls are a delicious and quick dinner option, featuring tender chicken and a savory teriyaki sauce.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "chicken breast"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "soy sauce"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "brown sugar"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "tablespoon",
+                "name": "ginger"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "tablespoon",
+                "name": "cornstarch"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "broccoli"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "carrots"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "bell pepper"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cup",
+                "name": "rice"
+            }
+        ],
+        "instructions": [
+            "Cook rice according to package instructions. Set aside.",
+            "In a small bowl, whisk together soy sauce, brown sugar, minced garlic, grated ginger, and cornstarch. Set aside.",
+            "Heat olive oil in a large skillet over medium-high heat. Add chicken breast, cut into bite-sized pieces, and cook until browned and cooked through.",
+            "Add broccoli, carrots, and bell pepper to the skillet. Cook for 5-7 minutes until vegetables are tender.",
+            "Pour the teriyaki sauce over the chicken and vegetables. Cook for an additional 2-3 minutes until sauce thickens.",
+            "Serve the teriyaki chicken and vegetables over rice."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716439,
+        "image": "https://www.seriouseats.com/thmb/mVZyOkRQQ_0Y5KhDyTnK2kHbAiQ=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/20210630-grilled-skirt-steak-fajitas-melissa-hom-seriouseats-13-ddd71ba2fe4041e59179e26989205617.jpg",
+        "title": "Steak Fajitas",
+        "readyInMinutes": 40,
+        "aggregateLikes": 350,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": true,
+        "summary": "These Steak Fajitas are sizzling with flavor and make for a delicious and easy weeknight dinner.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "flank steak"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "chili powder"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "cumin"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "garlic powder"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "onion"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "bell pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "red bell pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "tablespoon",
+                "name": "lime juice"
+            },
+            {
+                "quantity": 8.0,
+                "unit": "pieces",
+                "name": "tortillas"
+            }
+        ],
+        "instructions": [
+            "In a small bowl, combine chili powder, cumin, garlic powder, salt, and black pepper. Rub the spice mixture onto both sides of the flank steak.",
+            "Heat 1 tablespoon of olive oil in a large skillet over medium-high heat. Add the steak and cook for 5-7 minutes on each side, or until desired doneness. Remove from skillet and let rest for 5 minutes before slicing.",
+            "In the same skillet, add the remaining olive oil and sliced onion and bell peppers. Cook for 5-7 minutes until vegetables are tender.",
+            "Return the sliced steak to the skillet and toss with vegetables. Add lime juice and stir to combine.",
+            "Serve the steak and vegetables in warm tortillas."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716440,
+        "image": "https://www.twopeasandtheirpod.com/wp-content/uploads/2022/12/Beef-Tacos-55-480x270.jpg",
+        "title": "Ground Beef Tacos",
+        "readyInMinutes": 25,
+        "aggregateLikes": 500,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "These Ground Beef Tacos are quick to make and packed with flavor, perfect for a busy weeknight meal.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "ground beef"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "package",
+                "name": "taco seasoning"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "water"
+            },
+            {
+                "quantity": 8.0,
+                "unit": "pieces",
+                "name": "taco shells"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "shredded lettuce"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "diced tomatoes"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "shredded cheese"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "sour cream"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "salsa"
+            }
+        ],
+        "instructions": [
+            "In a large skillet, cook ground beef over medium heat until browned. Drain excess fat.",
+            "Add taco seasoning and water to the skillet. Stir to combine and simmer for 5 minutes.",
+            "Warm taco shells according to package instructions.",
+            "Fill taco shells with seasoned ground beef. Top with shredded lettuce, diced tomatoes, shredded cheese, sour cream, and salsa."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716441,
+        "image": "https://www.allrecipes.com/thmb/Pow6PE9UyushNDB4wutXNnmriX8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/85389-gourmet-mushroom-risotto-86-7a2d218f53e94ccfaecc69b6fd93cab8.jpg",
+        "title": "Mushroom Risotto",
+        "readyInMinutes": 45,
+        "aggregateLikes": 370,
+        "vegetarian": true,
+        "vegan": false,
+        "glutenFree": true,
+        "summary": "Creamy and rich, this Mushroom Risotto is a comforting dish that’s perfect for a cozy dinner at home.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "Arborio rice"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "onion"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 8.0,
+                "unit": "ounce",
+                "name": "mushrooms"
+            },
+            {
+                "quantity": 4.0,
+                "unit": "cup",
+                "name": "vegetable broth"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "white wine"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "Parmesan cheese"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "butter"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            }
+        ],
+        "instructions": [
+            "In a large saucepan, heat olive oil over medium heat. Add chopped onion and cook for 5 minutes until softened.",
+            "Add minced garlic and sliced mushrooms. Cook for another 5-7 minutes until mushrooms are browned.",
+            "Stir in Arborio rice and cook for 2 minutes until lightly toasted.",
+            "Add white wine and cook until absorbed.",
+            "Gradually add vegetable broth, one cup at a time, stirring constantly and waiting until the liquid is absorbed before adding more. Continue until the rice is creamy and tender.",
+            "Stir in Parmesan cheese, butter, salt, and black pepper. Serve hot."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716442,
+        "image": "https://www.southernplate.com/wp-content/uploads/2016/02/Baked-Ziti-Dish-scaled.jpg",
+        "title": "Baked Ziti",
+        "readyInMinutes": 50,
+        "aggregateLikes": 420,
+        "vegetarian": true,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "This Baked Ziti is a classic Italian-American comfort food, perfect for feeding a crowd or enjoying as leftovers.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "pound",
+                "name": "ziti pasta"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cup",
+                "name": "marinara sauce"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "ricotta cheese"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "mozzarella cheese"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "Parmesan cheese"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "Italian seasoning"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 375 degrees F. Cook ziti pasta according to package instructions. Drain and set aside.",
+            "In a large bowl, mix cooked ziti with marinara sauce, ricotta cheese, half of the mozzarella cheese, Parmesan cheese, olive oil, salt, black pepper, and Italian seasoning.",
+            "Transfer the mixture to a greased baking dish. Sprinkle the remaining mozzarella cheese on top.",
+            "Bake for 25-30 minutes, or until the cheese is melted and bubbly.",
+            "Serve hot, garnished with additional Parmesan cheese if desired."
+        ],
+        "servings": 6
+    },
+    {
+        "id": 716443,
+        "image": "https://rockymountaincooking.com/wp-content/uploads/2018/10/French-Chicken-Onion-Soup.jpg",
+        "title": "French Onion Soup",
+        "readyInMinutes": 90,
+        "aggregateLikes": 280,
+        "vegetarian": true,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "This classic French Onion Soup is rich and comforting, topped with a toasted baguette slice and melted Gruyère cheese.",
+        "ingredients": [
+            {
+                "quantity": 4.0,
+                "unit": "large",
+                "name": "onions"
+            },
+            {
+                "quantity": 3.0,
+                "unit": "tablespoon",
+                "name": "butter"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "sugar"
+            },
+            {
+                "quantity": 8.0,
+                "unit": "cup",
+                "name": "beef broth"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "white wine"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "thyme"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "loaf",
+                "name": "baguette"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cup",
+                "name": "Gruyère cheese"
+            }
+        ],
+        "instructions": [
+            "In a large pot, heat butter and olive oil over medium heat. Add thinly sliced onions and sugar. Cook for 30-40 minutes, stirring frequently, until onions are caramelized.",
+            "Add beef broth, white wine, thyme, salt, and black pepper. Bring to a boil, then reduce heat and simmer for 20 minutes.",
+            "Preheat broiler. Ladle soup into oven-safe bowls. Top each bowl with a slice of baguette and a generous amount of grated Gruyère cheese.",
+            "Broil for 3-5 minutes, or until cheese is melted and bubbly.",
+            "Serve hot, garnished with additional thyme if desired."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716444,
+        "image": "https://www.tastingtable.com/img/gallery/crispy-and-saucy-chicken-parmesan-recipe/l-intro-1655920029.jpg",
+        "title": "Chicken Parmesan",
+        "readyInMinutes": 45,
+        "aggregateLikes": 390,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "Crispy and cheesy, this Chicken Parmesan is a family favorite that's easy to make and delicious to eat.",
+        "ingredients": [
+            {
+                "quantity": 4.0,
+                "unit": "pieces",
+                "name": "chicken breast"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "breadcrumbs"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "cup",
+                "name": "Parmesan cheese"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "egg"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "all-purpose flour"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "marinara sauce"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "mozzarella cheese"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "Italian seasoning"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 375 degrees F. Pound chicken breasts to an even thickness. Season with salt, black pepper, and Italian seasoning.",
+            "Dredge chicken in flour, dip in beaten egg, and coat with a mixture of breadcrumbs and grated Parmesan cheese.",
+            "Heat olive oil in a large skillet over medium-high heat. Cook chicken for 3-4 minutes on each side until golden brown.",
+            "Place chicken in a baking dish. Top with marinara sauce and shredded mozzarella cheese.",
+            "Bake for 20-25 minutes, or until chicken is cooked through and cheese is melted and bubbly.",
+            "Serve hot, garnished with additional Parmesan cheese if desired."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716445,
+        "image": "https://www.allrecipes.com/thmb/Rh2NialypvMY-ory6lY4_6cFPvE=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/16311-simple-beef-stroganoff-DDMFS-4x3-1e966286eef54c0f96c882e569926eb3.jpg",
+        "title": "Beef Stroganoff",
+        "readyInMinutes": 60,
+        "aggregateLikes": 320,
+        "vegetarian": false,
+        "vegan": false,
+        "glutenFree": false,
+        "summary": "Creamy and comforting, this Beef Stroganoff is a classic dish that's perfect for a cozy dinner.",
+        "ingredients": [
+            {
+                "quantity": 1.5,
+                "unit": "pound",
+                "name": "beef sirloin"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "onion"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cup",
+                "name": "mushrooms"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "all-purpose flour"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "beef broth"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "sour cream"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "Dijon mustard"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "Worcestershire sauce"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "paprika"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 8.0,
+                "unit": "ounce",
+                "name": "egg noodles"
+            }
+        ],
+        "instructions": [
+            "Cook egg noodles according to package instructions. Drain and set aside.",
+            "In a large skillet, heat olive oil over medium-high heat. Add sliced beef sirloin and cook until browned. Remove from skillet and set aside.",
+            "In the same skillet, add chopped onion and minced garlic. Cook for 5 minutes until softened.",
+            "Add sliced mushrooms and cook for another 5 minutes until browned.",
+            "Stir in flour and cook for 1-2 minutes until lightly browned.",
+            "Gradually add beef broth, stirring constantly, until sauce thickens.",
+            "Reduce heat to low and stir in sour cream, Dijon mustard, Worcestershire sauce, paprika, salt, and black pepper.",
+            "Return beef to the skillet and cook for 5 minutes until heated through.",
+            "Serve the beef stroganoff over egg noodles."
+        ],
+        "servings": 4
+    },
+    {
+        "id": 716446,
+        "image": "https://frommybowl.com/wp-content/uploads/2023/11/Butternut_Squash_Apple_Soup_Sage_Vegan_GlutenFree_FromMyBowl-6-scaled.jpg",
+        "title": "Butternut Squash Soup",
+        "readyInMinutes": 60,
+        "aggregateLikes": 290,
+        "vegetarian": true,
+        "vegan": true,
+        "glutenFree": true,
+        "summary": "This creamy Butternut Squash Soup is perfect for a warm, comforting meal during the colder months.",
+        "ingredients": [
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "butternut squash"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "large",
+                "name": "onion"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "cloves",
+                "name": "garlic"
+            },
+            {
+                "quantity": 4.0,
+                "unit": "cup",
+                "name": "vegetable broth"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "salt"
+            },
+            {
+                "quantity": 0.5,
+                "unit": "teaspoon",
+                "name": "black pepper"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "teaspoon",
+                "name": "ground nutmeg"
+            },
+            {
+                "quantity": 1.0,
+                "unit": "cup",
+                "name": "coconut milk"
+            },
+            {
+                "quantity": 2.0,
+                "unit": "tablespoon",
+                "name": "olive oil"
+            }
+        ],
+        "instructions": [
+            "Preheat oven to 400 degrees F. Cut butternut squash in half lengthwise and remove seeds. Place on a baking sheet and roast for 30-40 minutes until tender. Scoop out the flesh and set aside.",
+            "In a large pot, heat olive oil over medium heat. Add chopped onion and minced garlic. Cook for 5 minutes until softened.",
+            "Add roasted butternut squash, vegetable broth, salt, black pepper, and ground nutmeg to the pot. Bring to a boil, then reduce heat and simmer for 15 minutes.",
+            "Using an immersion blender, blend the soup until smooth.",
+            "Stir in coconut milk and cook for an additional 5 minutes.",
+            "Serve hot, garnished with additional coconut milk if desired."
+        ],
+        "servings": 4
+    },
+    {
+    "id": 716447,
+    "image": "https://www.budgetbytes.com/wp-content/uploads/2022/03/Easy-Vegetable-Stir-Fry-close.jpg",
+    "title": "Vegetable Stir-Fry",
+    "readyInMinutes": 30,
+    "aggregateLikes": 350,
+    "vegetarian": true,
+    "vegan": true,
+    "glutenFree": true,
+    "summary": "A quick and healthy vegetable stir-fry perfect for a weeknight dinner.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "tablespoon",
+            "name": "soy sauce"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "tablespoon",
+            "name": "sesame oil"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "broccoli florets"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "sliced bell peppers"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "sliced carrots"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "snap peas"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "minced garlic"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "minced ginger"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "cornstarch"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "vegetable broth"
+        }
+    ],
+    "instructions": [
+        "In a small bowl, mix soy sauce, sesame oil, cornstarch, and vegetable broth. Set aside.",
+        "Heat a large pan over medium-high heat. Add the sesame oil, minced garlic, and minced ginger. Stir-fry for 1 minute.",
+        "Add broccoli, bell peppers, carrots, and snap peas. Stir-fry for 5-7 minutes until vegetables are tender-crisp.",
+        "Pour the soy sauce mixture over the vegetables. Stir and cook for an additional 2-3 minutes until the sauce has thickened.",
+        "Serve hot over rice or noodles."
+    ],
+    "servings": 4
+},
+{
+    "id": 716448,
+    "image": "https://cookli.co.il/wp-content/uploads/2017/10/caesar-salad2.jpg",
+    "title": "Chicken Caesar Salad",
+    "readyInMinutes": 25,
+    "aggregateLikes": 540,
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "A classic Chicken Caesar Salad with crispy croutons and creamy Caesar dressing.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "romaine lettuce"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "cooked chicken breast"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "croutons"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "Parmesan cheese"
+        },
+        {
+            "quantity": 3.0,
+            "unit": "tablespoon",
+            "name": "Caesar dressing"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "olive oil"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "lemon juice"
+        }
+    ],
+    "instructions": [
+        "In a large bowl, combine romaine lettuce, cooked chicken breast, and croutons.",
+        "Drizzle with Caesar dressing, olive oil, and lemon juice. Toss to coat evenly.",
+        "Sprinkle Parmesan cheese on top.",
+        "Serve immediately."
+    ],
+    "servings": 2
+},
+{
+    "id": 716449,
+    "image": "https://preppykitchen.com/wp-content/uploads/2021/08/Chocolate-Chip-Cookies-Recipe.jpg",
+    "title": "Chocolate Chip Cookies",
+    "readyInMinutes": 45,
+    "aggregateLikes": 680,
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "Classic chocolate chip cookies that are crispy on the edges and chewy in the center.",
+    "ingredients": [
+        {
+            "quantity": 2.25,
+            "unit": "cup",
+            "name": "all-purpose flour"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "baking soda"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "unsalted butter"
+        },
+        {
+            "quantity": 0.75,
+            "unit": "cup",
+            "name": "granulated sugar"
+        },
+        {
+            "quantity": 0.75,
+            "unit": "cup",
+            "name": "brown sugar"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "vanilla extract"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "unit",
+            "name": "large eggs"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "chocolate chips"
+        }
+    ],
+    "instructions": [
+        "Preheat oven to 375 degrees F. In a medium bowl, whisk together flour, baking soda, and salt. Set aside.",
+        "In a large bowl, beat butter, granulated sugar, and brown sugar until creamy. Add vanilla extract and eggs, one at a time, beating well after each addition.",
+        "Gradually add the flour mixture to the butter mixture, beating until well combined. Stir in chocolate chips.",
+        "Drop dough by rounded tablespoonfuls onto ungreased baking sheets.",
+        "Bake for 9-11 minutes, or until golden brown. Cool on baking sheets for 2 minutes, then transfer to wire racks to cool completely.",
+        "Serve and enjoy."
+    ],
+    "servings": 24
+}
+]

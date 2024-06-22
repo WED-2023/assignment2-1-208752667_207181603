@@ -16,7 +16,6 @@
                         <b-form-checkbox-group
                             v-model="selected"
                             :options="choices"
-                            :aria-describedby="ariaDescribedby"
                             class="ml-4"
                             aria-label="Individual choices"
                             stacked>
@@ -74,6 +73,7 @@ export default {
                 this.indeterminateSelected = true
                 this.allSelected = false
             }
+            this.$emit('updateSelected', newValue);   
         }
     }
 }

@@ -38,7 +38,7 @@
         <b-button
           type="submit"
           variant="primary"
-          style="width:100px;display:block;"
+          style="width:100px;display:block; margin-top: 15px;"
           class="mx-auto w-100"
           >Login</b-button
         >
@@ -92,40 +92,37 @@
         return $dirty ? !$error : null;
       },
       async Login() {
+        let success;
         try {
-          
           // const response = await this.axios.post(
-          //   this.$root.store.server_domain +"/Login",
-  
-  
+          //   this.$root.store.server_domain +"/Login",  
           //   {
           //     username: this.form.username,
           //     password: this.form.password
           //   }
           // );
   
-          const success = true; // modify this to test the error handling
-          const response = mockLogin(this.form.username, this.form.password, success);
-  
-          // console.log(response);
-          // this.$root.loggedIn = true;
-          console.log(this.$root.store.login);
-          this.$root.store.login(this.form.username);
-          this.$router.push("/");
+          const response = mockLogin(this.form.username, this.form.password, false);
+
+          success = response.response.data.success;
         } catch (err) {
           console.log(err.response);
           this.form.submitError = err.response.data.message;
         }
+        let message = success ? "Welcome " + this.form.username : "Login failed";
+        if(success){
+          this.$root.store.username = this.form.username;
+          this.$router.push("/");
+        }
+        this.$root.toast("Logging " + this.form.username, message, success);
       },
   
       onLogin() {
-        // console.log("login method called");
         this.form.submitError = undefined;
         this.$v.form.$touch();
         if (this.$v.form.$anyError) {
           return;
         }
-        // console.log("login method go");
   
         this.Login();
       }

@@ -86,15 +86,17 @@
           Invalid email address
         </b-form-invalid-feedback>
       </b-form-group>
-
-      <b-button type="reset" variant="danger">Reset</b-button>
-      <b-button
-        type="submit"
-        variant="primary"
-        style="width:250px;"
-        class="ml-5 w-75"
-        >Register</b-button
-      >
+      <br>
+      <div class="buttons">
+        <b-button type="reset" variant="outline-primary">Reset</b-button>
+        <b-button
+          type="submit"
+          variant="primary"
+          style="width:250px;"
+          class="ml-5 w-75"
+          >Register</b-button
+        >
+      </div>
       <div class="mt-2">
         You have an account already?
         <router-link to="login"> Log in here</router-link>
@@ -215,12 +217,16 @@ export default {
 
         const response = mockRegister(userDetails);
 
-        this.$router.push("/login");
-        // console.log(response);
-      } catch (err) {
-        console.log(err.response);
-        this.form.submitError = err.response.data.message;
-      }
+        success = response.response.data.success;
+        } catch (err) {
+          console.log(err.response);
+          this.form.submitError = err.response.data.message;
+        }
+        let message = success ? "Welcome " + this.form.username : "Login failed";
+        if(success){
+          this.$root.store.username = this.form.username;
+        }
+        this.$root.toast("Logging " + this.form.username, message, success);
     },
 
     onRegister() {
@@ -253,5 +259,8 @@ export default {
 <style lang="scss" scoped>
 .container {
   max-width: 650px;
+}
+.buttons {
+  align-items: center;
 }
 </style>

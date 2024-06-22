@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-navbar toggleable="lg" type="dark" variant="warning" style="position: fixed; width: 100%; z-index: 10;">
-      <b-navbar-brand :to="{ name: 'main' }" id="brand_icon">
+      <b-navbar-brand :to="{ name: 'MainPage' }" id="brand_icon">
         <img src="../assets/logo.png" width="40px" alt="Home">
       </b-navbar-brand>
 
@@ -11,7 +11,7 @@
           <b-nav-item id="new-recipe-button" v-b-modal.create-recipe-modal v-if="$root.store.username">Create New Recipe</b-nav-item>
         </b-navbar-nav>
       </b-collapse>
-      <b-navbar-nav class="ml-auto">
+      <b-navbar-nav>
         <b-nav-item-dropdown v-if="$root.store.username">
           <template #button-content>
             <em>Hello {{ $root.store.username }}</em>
@@ -21,7 +21,7 @@
           <b-dropdown-item variant="info" :to="{ name: 'MyFamilyRecipes' }">Family Recipes</b-dropdown-item>
           <b-dropdown-item variant="danger" @click="Logout" v-if="$root.store.username">Logout</b-dropdown-item>
         </b-nav-item-dropdown>
-        <b-nav-item-dropdown v-else left>
+        <b-nav-item-dropdown v-else>
           <template #button-content>
             <em>Hello Guest</em>
           </template>

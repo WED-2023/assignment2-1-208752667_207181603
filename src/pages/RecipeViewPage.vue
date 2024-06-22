@@ -1,117 +1,91 @@
 <template>
   <div class="container">
-    <div v-if="recipe">
-      <div class="recipe-header mt-3 mb-4">
-        <h1>{{ recipe.title }}</h1>
-        <h2>{{ $route.params.id }}</h2>
-        <img :src="recipe.image" class="center" />
+    <b-card style="margin-top: 20px;">
+      <h1>{{ recipe.title }}</h1>
+      <b-card-img :src="recipe.image" img-alt="Card image" class="squared-image" img-top></b-card-img>
+      <h2>{{ recipe.summary }}</h2>
+      <h3>
+          <small class="text-muted">{{ recipe.readyInMinutes }} mins to cook | {{ recipe.aggregateLikes }} people likes | For {{ recipe.servings }} dishes</small>
+          <small v-if="recipe.glutenFree" class="text-muted"> | Gluten Free</small>
+          <small v-if="recipe.vegetarian" class="text-muted"> | Vegetarian</small>
+          <small v-if="recipe.vegan" class="text-muted"> | Vegan</small>
+      </h3>
+      <b-button v-if="$root.store.username" :pressed.sync="inFavorites" variant="outline-warning" class="mb-2"  @click="favoritesAction">
+        <b-icon v-if="inFavorites" icon="star-fill" aria-hidden="true" class=""></b-icon>
+        <b-icon v-else icon="star" aria-hidden="true" class=""></b-icon>
+        Add to Favorites
+      </b-button>
+      <div class="ingiridients">
+        <h2>Ingredients</h2>
+        <ul>
+          <li v-for="ingredient in recipe.ingredients" :key="ingredient.name">
+            {{ ingredient.quantity }} {{ ingredient.unit }} of {{ ingredient.name }}
+          </li>
+        </ul>
       </div>
-      <div class="recipe-body">
-        <div class="wrapper">
-          <div class="wrapped">
-            <div class="mb-3">
-              <div>Ready in {{ recipe.readyInMinutes }} minutes</div>
-              <div>Likes: {{ recipe.aggregateLikes }} likes</div>
-            </div>
-            Ingredients:
-            <ul>
-              <li
-                v-for="(r, index) in recipe.extendedIngredients"
-                :key="index + '_' + r.id"
-              >
-                {{ r.original }}
-              </li>
-            </ul>
-          </div>
-          <div class="wrapped">
-            Instructions:
-            <ol>
-              <li v-for="s in recipe._instructions" :key="s.number">
-                {{ s.step }}
-              </li>
-            </ol>
-          </div>
-        </div>
+      <div class="instructions">
+        <h2>Instructions</h2>
+        <ol>
+          <li v-for="step in recipe.instructions" :key="step">
+            {{ step }}
+          </li>
+        </ol>
       </div>
-      <!-- <pre>
-      {{ $route.params }}
-      {{ recipe }}
-    </pre
-      > -->
-    </div>
-    <div v-else>
-      <h1>Didn't find bud</h1>
-    </div>
+    </b-card>
   </div>
 </template>
 
 <script>
-import { mockGetRecipeFullDetails } from "../services/recipes.js";
-import RecipePreview from "../components/RecipePreview.vue";
+import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../services/user';
+import { mockGetRecipeFullDetails } from '../services/recipes';
+
 export default {
-  components: {
-    RecipePreview
-  },
   data() {
     return {
-      recipeId: this.$route.params.id,
-      recipe: null
+      recipe: null,
+      // Replace the mocks
+      inFavorites: mockIsInFavoites(this.$route.params.id).response.data.inFavorites
     };
   },
   async created() {
-    try {
-      let recipe_received;
-      // recipe_received = this.$route.params.recipe_received;
-
-      try {
-        // recipe_received = await this.axios.get(
-        //   this.$root.store.server_domain + "/recipes/" + this.$route.params.recipeId,
-        //   {
-        //     withCredentials: true
-        //   }
-        // );
-        recipe_received = mockGetRecipeFullDetails(this.$route.params.recipeId);
-
-        if (recipe_received.status !== 200) this.$router.replace("/NotFound");
-      } catch (error) {
-        console.log("error.recipe_received.status", error.recipe_received.status);
-        this.$router.replace("/NotFound");
-        return;
-      }
-
-      let {
-        analyzedInstructions,
-        instructions,
-        extendedIngredients,
-        aggregateLikes,
-        readyInMinutes,
-        image,
-        title
-      } = recipe_received.respose.data.recipe;
-
-      let _instructions = analyzedInstructions
-        .map((fstep) => {
-          fstep.steps[0].step = fstep.name + fstep.steps[0].step;
-          return fstep.steps;
-        })
-        .reduce((a, b) => [...a, ...b], []);
-
-      let _recipe = {
-        instructions,
-        _instructions,
-        analyzedInstructions,
-        extendedIngredients,
-        aggregateLikes,
-        readyInMinutes,
-        image,
-        title
-      };
-
-      this.recipe = _recipe;
-    } catch (error) {
-      console.log(error);
+    let responseReceived;
+    try{
+      // recipe_received = await this.axios.get(
+      //   this.$root.store.server_domain + "/recipes/" + this.$route.params.recipeId,
+      //   {
+      //     withCredentials: true
+      //   }
+      // );
+      responseReceived = mockGetRecipeFullDetails(this.$route.params.id);
     }
-  }
+    catch (error) {
+      console.log(error);
+      this.$router.replace("/NotFound");
+      return;
+    }
+    if (responseReceived.status !== 200){
+      console.log(responseReceived.status)
+      this.$router.replace("/NotFound");
+      return;
+    }
+    this.recipe = responseReceived.respose.data.recipe;
+  },
+  favoritesAction() {
+      // Add or remove from favorites based on current state
+      let response;
+      if (this.inFavorites) {
+        // Replace the mock
+        response = mockRemoveFavorite(this.recipe.id);
+      } else {
+        // Replace the mock
+        response = mockAddFavorite(this.recipe.id);
+      }
+      this.$root.toast(this.recipe.title, response.response.data.message, response.response.data.success);
+      if(response.response.data.status === 'success')
+      {
+        this.inFavorites = !this.inFavorites;
+      }
+    }
 };
 </script>
 
@@ -128,7 +102,4 @@ export default {
   margin-right: auto;
   width: 50%;
 }
-/* .recipe-header{
-
-} */
 </style>

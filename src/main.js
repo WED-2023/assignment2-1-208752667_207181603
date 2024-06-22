@@ -27,7 +27,9 @@ import {
   ToastPlugin,
   LayoutPlugin,
   SidebarPlugin,
-  IconsPlugin
+  IconsPlugin,
+  FormRadioPlugin,
+  FormTextareaPlugin
 } from "bootstrap-vue";
 [
   ModalPlugin,
@@ -43,7 +45,9 @@ import {
   ToastPlugin,
   LayoutPlugin,
   SidebarPlugin,
-  IconsPlugin
+  IconsPlugin,
+  FormRadioPlugin,
+  FormTextareaPlugin
 ].forEach((x) => Vue.use(x));
 Vue.use(Vuelidate);
 
@@ -88,7 +92,6 @@ const shared_data = {
     this.username = undefined;
   },
 };
-console.log(shared_data);
 // Vue.prototype.$root.store = shared_data;
 
 new Vue({
@@ -99,7 +102,8 @@ new Vue({
     };
   },
   methods: {
-    toast(title, content, variant = null, append = false) {
+    toast(title, content, success=true, append = false) {
+      let variant = success ? "success" : "danger";
       this.$bvToast.toast(`${content}`, {
         title: `${title}`,
         toaster: "b-toaster-top-center",

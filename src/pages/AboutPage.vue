@@ -1,11 +1,11 @@
 <template>
   <div class="container">
-    <h1 class="title">About Page</h1>
+    <h1 class="title">{{ recipe.title }}</h1>
+    <RecipePreview class="recipePreview" :recipe="recipe" />
   </div>
 </template>
 
 <script>
-import { mockGetRecipeFullDetails } from "../services/recipes.js";
 import RecipePreview from "../components/RecipePreview.vue";
 
 export default {
@@ -26,7 +26,6 @@ export default {
       //     withCredentials: true
       //   }
       // );
-      responseReceived = mockGetRecipeFullDetails(this.$route.params.id);
     }
     catch (error) {
       console.log(error);

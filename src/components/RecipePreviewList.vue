@@ -4,16 +4,15 @@
       {{ title }}:
     </h3>
     <b-row>
-      <b-col v-for="r in recipes" :key="r.id">
-        <RecipePreview class="recipePreview" :recipe="r" />
-      </b-col>
-    </b-row>
+    <b-col v-for="r in recipes" :key="r.id" cols="12" md="6" lg="4">
+      <RecipePreview class="recipePreview" :recipe="r" />
+    </b-col>
+  </b-row>
   </b-container>
 </template>
 
 <script>
 import RecipePreview from "./RecipePreview.vue";
-import { mockGetRecipesPreview } from "../services/recipes.js";
 export default {
   name: "RecipePreviewList",
   components: {
@@ -22,41 +21,23 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: false,
+      default() {
+        return "";
+      }
     },
-    amountToFetch: {
+    recipes: {
+      type: Array,
+      required: false,
+      default() {
+        return [];
+      }
+    },
+    itemsPerRow: {
       type: Number,
       required: false,
       default() {
         return 6;
-      }
-    }
-  },
-  data() {
-    return {
-      recipes: []
-    };
-  },
-  mounted() {
-    this.updateRecipes();
-  },
-  methods: {
-    updateRecipes() {
-      try {
-        // const response = await this.axios.get(
-        //   this.$root.store.server_domain + "/recipes/random",
-        // );
-        const amountToFetch = this.amountToFetch; // Set this to how many recipes you want to fetch
-        const response = mockGetRecipesPreview(amountToFetch);
-
-
-        console.log(response);
-        const recipes = response.data.recipes;
-        console.log(recipes);
-        this.recipes = [];
-        this.recipes.push(...recipes);
-      } catch (error) {
-        console.log(error);
       }
     }
   }
