@@ -142,8 +142,8 @@ export default {
         vegan: false,
         glutenFree: false,
         summary: '',
-        ingredients: [{ quantity: '', unit: '', name: '' }],
-        instructions: [''],
+        ingredients: [],
+        instructions: [],
         servings: 1
       },
       show: true
@@ -208,8 +208,8 @@ export default {
         vegan: false,
         glutenFree: false,
         summary: '',
-        ingredients: [{ quantity: '', unit: '', name: '' }],
-        instructions: [''],
+        ingredients: [],
+        instructions: [],
         servings: 1
       };
       this.show = false;
