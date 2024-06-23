@@ -71,10 +71,12 @@ export default {
     }
     this.recipe = responseReceived.response.data.recipe;
   },
-  favoritesAction() {
+  methods: {
+    favoritesAction() {
       // Add or remove from favorites based on current state
+      this.inFavorites = !this.inFavorites;
       let response;
-      if (this.inFavorites) {
+      if (this.inFavorites == true) {
         // Replace the mock
         response = mockRemoveFavorite(this.recipe.id);
       } else {
@@ -82,11 +84,12 @@ export default {
         response = mockAddFavorite(this.recipe.id);
       }
       this.$root.toast(this.recipe.title, response.response.data.message, response.response.data.success);
-      if(response.response.data.status === 'success')
+      if(!response.response.data.status)
       {
         this.inFavorites = !this.inFavorites;
       }
     }
+  }
 };
 </script>
 
