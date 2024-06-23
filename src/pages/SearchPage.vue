@@ -13,9 +13,9 @@
       </b-collapse>
   </div>
     <div class="search-bar">
-      <input type="text" v-model="query" placeholder="Search Recipes..."/>
+      <input type="text" v-model="query" placeholder="Search Recipes..." id="search-query" name="search-query" autocomplete="off"/>
       <em>Requested Amount of Recipes: </em>
-      <b-form-select v-model="limit">
+      <b-form-select v-model="limit" id="recipe-limit" name="recipe-limit">
         <b-form-select-option value="5">5</b-form-select-option>
         <b-form-select-option value="10">10</b-form-select-option>
         <b-form-select-option value="15">15</b-form-select-option>

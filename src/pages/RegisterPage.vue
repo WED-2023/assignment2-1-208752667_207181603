@@ -4,7 +4,7 @@
     <h1 class="title">Register</h1>
     <b-form @submit.prevent="onRegister" @reset.prevent="onReset" inline>
       <b-form-group id="input-group-username" label="Username:" label-for="username">
-        <b-form-input id="username" v-model="$v.form.username.$model" type="text" :state="validateState('username')"></b-form-input>
+        <b-form-input id="username" v-model="$v.form.username.$model" type="text" :state="validateState('username')" autocomplete="''"></b-form-input>
         <b-form-invalid-feedback v-if="!$v.form.username.required">
           Username is required
         </b-form-invalid-feedback>
@@ -39,7 +39,7 @@
       </b-form-group>
       
       <b-form-group id="input-group-country" label-cols-sm="3" label="Country:" label-for="country">
-        <b-form-select id="country" v-model="$v.form.country.$model" :options="countries" :state="validateState('country')"></b-form-select>
+        <b-form-select id="country" v-model="$v.form.country.$model" :options="countries" :state="validateState('country')" autocomplete="''"></b-form-select>
         <b-form-invalid-feedback>
           Country is required
         </b-form-invalid-feedback>
@@ -78,7 +78,7 @@
 
       <b-form-group
         id="input-group-email" label-cols label="Email address:" label-for="email">
-        <b-form-input id="email" type="email" v-model="$v.form.email.$model" :state="validateState('email')"></b-form-input>
+        <b-form-input id="email" type="email" v-model="$v.form.email.$model" :state="validateState('email')" autocomplete="''"></b-form-input>
         <b-form-invalid-feedback v-if="!$v.form.email.required">
           Last Name is required
         </b-form-invalid-feedback>

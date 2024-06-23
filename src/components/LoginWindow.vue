@@ -12,6 +12,7 @@
             v-model="$v.form.username.$model"
             type="text"
             :state="validateState('username')"
+            autocomplete="off"
           ></b-form-input>
           <b-form-invalid-feedback>
             Invalid username
