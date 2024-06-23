@@ -39,6 +39,20 @@ export function mockGetLastViewedRecipes(count) {
   return { data: { recipes: recipes } };
 }
 
+export function mockGetFavoritesRecipes(count) {
+  let recipes = example_recipes;
+  recipes = [recipes[1], recipes[3], recipes[5]];
+
+  return { data: { recipes: recipes } };
+} 
+
+export function mockGetMyRecipes(count) {
+  let recipes = example_recipes;
+  recipes = recipes.slice(3, count + 3);
+
+  return { data: { recipes: recipes } };
+}
+
 export function mockGetRecipeFullDetails(id) {
   id = Number(id);
   let recipe = example_recipes.find(example_recipe => example_recipe.id === id);
