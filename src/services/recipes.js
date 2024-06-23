@@ -11,9 +11,11 @@ function shuffle(array) {
   }
 }
 
-export function mockGetRandomRecipes(amount=1) {
-  let recipes = example_recipes;
-  shuffle(recipes)
+export function mockGetRandomRecipes(amount=3) {
+  let recipes = JSON.stringify(example_recipes);
+  recipes = JSON.parse(recipes);
+  
+  shuffle(recipes);
   recipes = recipes.slice(0, amount);
 
   return { data: { recipes: recipes } };
@@ -31,7 +33,6 @@ export function mockGetSearchResults(query, limit, intolerances=[], diets=[], cu
 
 export function mockGetLastViewedRecipes(count) {
   let recipes = example_recipes;
-  shuffle(recipes)
   recipes = recipes.slice(0, count);
 
   return { data: { recipes: recipes } };
