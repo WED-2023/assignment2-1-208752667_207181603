@@ -101,19 +101,21 @@
           //     password: this.form.password
           //   }
           // );
-  
-          const response = mockLogin(this.form.username, this.form.password, false);
-
+          const expectedSuccess = true; // modify this to test the error handling
+          let credentials = {
+            username: this.form.username,
+            password: this.form.password
+          };
+          const response = mockLogin(credentials, expectedSuccess);
           success = response.response.data.success;
+          if (success) {
+            this.$root.store.login(this.form.username);
+          }
         } catch (err) {
           console.log(err.response);
           this.form.submitError = err.response.data.message;
-        }
+        };
         let message = success ? "Welcome " + this.form.username : "Login failed";
-        if(success){
-          this.$root.store.username = this.form.username;
-          this.$router.push("/");
-        }
         this.$root.toast("Logging " + this.form.username, message, success);
       },
   
