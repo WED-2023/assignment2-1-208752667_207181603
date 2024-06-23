@@ -112,6 +112,7 @@ new Vue({
         solid: true,
         appendToast: append,
         autoHideDelay: 3000,
+        noCloseButton: true
       });
     },
   },

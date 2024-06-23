@@ -23,7 +23,7 @@
       <h2>Meet Our Developers</h2>
       
       <div class="developer">
-        <h3>Yoav Zelinger</h3>
+        <h3 style="text-align: left;">Yoav Zelinger</h3>
         <p><strong>Introduction:</strong></p>
         <p>Yoav Zelinger is an expert in backend development with a passion for creating robust and scalable APIs.</p>
         
@@ -42,7 +42,7 @@
 
       
       <div class="developer">
-        <h3>Itzik Elbazis</h3>
+        <h3 style="text-align: left;">Itzik Elbazis</h3>
         <p><strong>Introduction:</strong></p>
         <p>Itzik Elbazis is a seasoned software engineer with a strong background in frontend development.</p>
         

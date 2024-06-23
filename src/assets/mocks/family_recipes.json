@@ -361,5 +361,111 @@
         "Serve hot sauce over cooked spaghetti, garnished with grated Parmesan cheese if desired."
     ],
     "servings": 4
+},
+{
+    "id": 716455,
+    "image": "https://cdn.goodlifetv.co.il/wp-content/uploads/2023/07/10142531/IMG_3939.jpg",
+    "title": "Birthday Chocolate Cake",
+    "readyInMinutes": 90,
+    "aggregateLikes": 850,
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "A rich and moist chocolate cake perfect for birthdays, topped with creamy chocolate frosting.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "all-purpose flour"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "sugar"
+        },
+        {
+            "quantity": 0.75,
+            "unit": "cup",
+            "name": "unsweetened cocoa powder"
+        },
+        {
+            "quantity": 1.5,
+            "unit": "teaspoon",
+            "name": "baking powder"
+        },
+        {
+            "quantity": 1.5,
+            "unit": "teaspoon",
+            "name": "baking soda"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "",
+            "name": "large eggs"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "whole milk"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "vegetable oil"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "teaspoon",
+            "name": "vanilla extract"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "boiling water"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "unsalted butter, softened"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "unsweetened cocoa powder (for frosting)"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "powdered sugar"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "whole milk (for frosting)"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "vanilla extract (for frosting)"
+        }
+    ],
+    "instructions": [
+        "Preheat oven to 350°F (175°C). Grease and flour two 9-inch round baking pans.",
+        "In a large bowl, stir together flour, sugar, cocoa powder, baking powder, baking soda, and salt.",
+        "Add eggs, milk, oil, and vanilla extract to the flour mixture. Beat on medium speed for 2 minutes.",
+        "Stir in boiling water (batter will be thin). Pour batter into prepared pans.",
+        "Bake for 30-35 minutes, or until a toothpick inserted into the center comes out clean.",
+        "Cool cakes in pans for 10 minutes, then remove from pans to wire racks to cool completely.",
+        "For the frosting: In a medium bowl, beat butter until creamy. Add cocoa powder and beat until combined.",
+        "Gradually add powdered sugar and milk, beating to spreading consistency. Stir in vanilla extract.",
+        "Frost the top of one cake layer, place the second cake layer on top, and frost the top and sides of the cake.",
+        "Decorate as desired and serve."
+    ],
+    "servings": 12
 }
 ]

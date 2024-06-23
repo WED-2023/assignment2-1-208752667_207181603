@@ -47,3 +47,9 @@ export function mockGetRecipeFullDetails(id) {
   }
   return { status: 200, response: {data: { recipe: recipe } }};
 }
+
+export function mockGetFamilyRecipes() {
+  let recipes = JSON.stringify(family_recipes);
+  recipes = JSON.parse(recipes);
+  return { data: { recipes: recipes } };
+}

@@ -1,6 +1,37 @@
 <template>
-    <div class="container">
-      <h1 class="title">My Family Recipes Page</h1>
+    <div>
+        <h3>Random Recipes</h3>
+        <RecipePreviewList :recipes="recipes" />
     </div>
-  </template>
-  
+</template>
+
+<script>
+import RecipePreviewList from "../components/RecipePreviewList.vue";
+import { mockGetFamilyRecipes } from "../services/recipes.js";
+
+export default {
+    name: "FamilyRecipes",
+    components: {
+        RecipePreviewList
+    },
+    data() {
+        return {
+            recipes: []
+        };
+    },
+    methods: {
+        async updateRecipes() {
+            try {
+                // Replace the mock
+                const response = mockGetFamilyRecipes(); 
+                this.recipes = response.data.recipes;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    },
+    created() {
+        this.updateRecipes();
+    }
+};
+</script>
