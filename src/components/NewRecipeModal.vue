@@ -29,31 +29,30 @@
             type="number"
             placeholder="Enter preparation time"
             required
-            min="0"
+            min="1"
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-4" label="Aggregate Likes:" label-for="input-4">
+        <b-form-group id="input-group-11" label="Dishes:" label-for="input-11">
           <b-form-input
-            id="input-4"
-            v-model.number="form.aggregateLikes"
+            id="input-11"
+            v-model.number="form.servings"
             type="number"
-            placeholder="Enter likes count"
             required
-            min="0"
+            min="1"
           ></b-form-input>
         </b-form-group>
-
-        <b-form-group id="input-group-5" label="Vegetarian:">
-          <b-form-checkbox v-model="form.vegetarian">Is Vegetarian</b-form-checkbox>
+        
+        <b-form-group id="input-group-5">
+          <b-form-checkbox v-model="form.vegetarian">Vegetarian</b-form-checkbox>
         </b-form-group>
 
-        <b-form-group id="input-group-6" label="Vegan:">
-          <b-form-checkbox v-model="form.vegan">Is Vegan</b-form-checkbox>
+        <b-form-group id="input-group-6">
+          <b-form-checkbox v-model="form.vegan">Vegan</b-form-checkbox>
         </b-form-group>
 
-        <b-form-group id="input-group-7" label="Gluten-Free:">
-          <b-form-checkbox v-model="form.glutenFree">Is Gluten-Free</b-form-checkbox>
+        <b-form-group id="input-group-7">
+          <b-form-checkbox v-model="form.glutenFree">Gluten-Free</b-form-checkbox>
         </b-form-group>
 
         <b-form-group id="input-group-8" label="Summary:" label-for="input-8">
@@ -91,7 +90,7 @@
             ></b-form-input>
             <b-button @click="removeIngredient(index)" variant="danger">Remove</b-button>
           </div>
-          <b-button @click="addIngredient" variant="success">Add Ingredient</b-button>
+          <b-button @click="addIngredient" variant="success">Add Another Ingredient</b-button>
         </b-form-group>
 
         <b-form-group id="input-group-10" label="Instructions:">
@@ -105,22 +104,13 @@
             ></b-form-textarea>
             <b-button @click="removeInstruction(index)" variant="danger">Remove</b-button>
           </div>
-          <b-button @click="addInstruction" variant="success">Add Instruction</b-button>
+          <b-button @click="addInstruction" variant="success" style="margin-bottom: 10px;">Add Another Step</b-button>
         </b-form-group>
 
-        <b-form-group id="input-group-11" label="Servings:" label-for="input-11">
-          <b-form-input
-            id="input-11"
-            v-model.number="form.servings"
-            type="number"
-            placeholder="Enter servings"
-            required
-            min="0"
-          ></b-form-input>
-        </b-form-group>
+        
 
-        <b-button type="submit" variant="primary">Submit</b-button>
-        <b-button type="reset" variant="danger">Reset</b-button>
+        <b-button type="submit" variant="primary" style="margin-right: 5px;">Submit</b-button>
+        <b-button type="reset" variant="danger" style="margin-right: 5px;">Reset</b-button>
         <b-button @click="onCancel" variant="outline-secondary">Cancel</b-button>
       </b-form>
     </p>
@@ -128,29 +118,68 @@
 </template>
 
 <script>
+import { mockAddUserRecipe } from "../services/auth.js";
+
 export default {
   data() {
     return {
       form: {
         title: '',
         image: '',
-        readyInMinutes: 0,
-        aggregateLikes: 0,
+        readyInMinutes: 30,
         vegetarian: false,
         vegan: false,
         glutenFree: false,
         summary: '',
         ingredients: [{ quantity: '', unit: '', name: '' }],
         instructions: [''],
-        servings: 0
+        servings: 1
       },
       show: true
     };
   },
   methods: {
+    async addRecipe() {
+      try {
+
+        // const response = await this.axios.post(
+        //   // "https://test-for-3-2.herokuapp.com/user/Register",
+        //   this.$root.store.server_domain + "/Register",
+
+        //   {
+        //     username: this.form.username,
+        //     password: this.form.password
+        //   }
+        // );
+
+        const recipeDetails = {
+          title: this.form.title,
+          image: this.form.image,
+          readyInMinutes: this.form.readyInMinutes,
+          vegetarian: this.form.vegetarian,
+          vegan: this.form.vegan,
+          glutenFree: this.form.glutenFree,
+          summary: this.form.summary,
+          ingredients: this.form.ingredients,
+          instructions: this.form.instructions,
+          servings: this.form.servings
+        };
+
+        const response = mockAddUserRecipe(recipeDetails);
+
+        success = response.response.data.success;
+        } catch (err) {
+          console.log(err.response);
+          this.form.submitError = err.response.data.message;
+        }
+        return success;
+    },
     onSubmit(event) {
+      let success = addRecipe();
       event.preventDefault();
       this.closeModalAndReset();
+      let message = success ? "Recipe created successfully" : "Failed to create recipe";
+      this.$root.toast("Creating " + this.form.title, message, success);
     },
     onReset(event) {
       event.preventDefault();
@@ -163,15 +192,14 @@ export default {
       this.form = {
         title: '',
         image: '',
-        readyInMinutes: 0,
-        aggregateLikes: 0,
+        readyInMinutes: 30,
         vegetarian: false,
         vegan: false,
         glutenFree: false,
         summary: '',
         ingredients: [{ quantity: '', unit: '', name: '' }],
         instructions: [''],
-        servings: 0
+        servings: 1
       };
       this.show = false;
       this.$nextTick(() => {

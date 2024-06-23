@@ -212,7 +212,11 @@ export default {
 
         const userDetails = {
           username: this.form.username,
-          password: this.form.password
+          password: this.form.password,
+          email: this.form.email,
+          firstName: this.form.firstName,
+          lastName: this.form.lastName,
+          country: this.form.country
         };
 
         const response = mockRegister(userDetails);
