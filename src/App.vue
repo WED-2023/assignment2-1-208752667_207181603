@@ -34,4 +34,7 @@ export default {
 	padding-top: 60px;
 }
 
+.toast:not(.show) {
+   display: block !important;
+}
 </style>

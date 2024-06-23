@@ -1,0 +1,365 @@
+[
+    {
+    "id": 716450,
+    "image": "https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2021/11/14215843/%D7%99%D7%98%D7%91%D7%AA%D7%94-%D7%98%D7%99%D7%99%D7%A1%D7%98%D7%99-5.jpg",
+    "title": "Challah",
+    "readyInMinutes": 240,
+    "aggregateLikes": 320,
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "A traditional braided bread enjoyed on the Sabbath and Jewish holidays.",
+    "ingredients": [
+        {
+            "quantity": 4.0,
+            "unit": "cup",
+            "name": "all-purpose flour"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "sugar"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "tablespoon",
+            "name": "active dry yeast"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "warm water"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "cup",
+            "name": "vegetable oil"
+        },
+        {
+            "quantity": 3.0,
+            "unit": "",
+            "name": "large eggs"
+        },
+        {
+            "quantity": 1.5,
+            "unit": "teaspoon",
+            "name": "salt"
+        }
+    ],
+    "instructions": [
+        "In a large bowl, dissolve sugar and yeast in warm water. Let stand until foamy, about 5 minutes.",
+        "Add oil, 2 eggs, and salt to the yeast mixture. Mix in flour one cup at a time.",
+        "Knead dough on a floured surface until smooth, adding more flour if necessary.",
+        "Place dough in a greased bowl, cover with a damp cloth, and let rise in a warm place until doubled, about 1.5 hours.",
+        "Punch down dough, divide into 3 equal parts, and braid.",
+        "Place braided loaf on a greased baking sheet. Cover and let rise until doubled, about 1 hour.",
+        "Preheat oven to 375°F (190°C). Beat remaining egg and brush over loaf.",
+        "Bake for 30-40 minutes, or until golden brown."
+    ],
+    "servings": 12
+},
+{
+    "id": 716451,
+    "image": "https://www.shireats.com/wp-content/uploads/2020/09/IMG_7770-1024x768.jpg",
+    "title": "Jehanon",
+    "readyInMinutes": 180,
+    "aggregateLikes": 250,
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "A flavorful Yemenite Jewish stew traditionally prepared for the Sabbath.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "lb",
+            "name": "beef stew meat"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "",
+            "name": "large onions"
+        },
+        {
+            "quantity": 3.0,
+            "unit": "tablespoon",
+            "name": "tomato paste"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "tablespoon",
+            "name": "ground cumin"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "tablespoon",
+            "name": "ground coriander"
+        },
+        {
+            "quantity": 4.0,
+            "unit": "clove",
+            "name": "garlic"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "water"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "black pepper"
+        }
+    ],
+    "instructions": [
+        "Heat a large pot over medium-high heat. Add the beef and brown on all sides.",
+        "Add chopped onions and cook until softened, about 5 minutes.",
+        "Stir in tomato paste, cumin, coriander, minced garlic, salt, and pepper. Cook for another 2 minutes.",
+        "Pour in water and bring to a boil.",
+        "Reduce heat to low, cover, and simmer for about 3 hours, or until the meat is tender.",
+        "Serve hot with bread or rice."
+    ],
+    "servings": 6
+},
+{
+    "id": 716452,
+    "image": "https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2020/01/15145107/14.jpg",
+    "title": "Shakshuka",
+    "readyInMinutes": 35,
+    "aggregateLikes": 400,
+    "vegetarian": true,
+    "vegan": false,
+    "glutenFree": true,
+    "summary": "A delicious Middle Eastern dish of poached eggs in a spicy tomato sauce.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "tablespoon",
+            "name": "olive oil"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "",
+            "name": "large onion"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "",
+            "name": "bell pepper"
+        },
+        {
+            "quantity": 3.0,
+            "unit": "clove",
+            "name": "garlic"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "ground cumin"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "paprika"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "ground coriander"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "can",
+            "name": "crushed tomatoes"
+        },
+        {
+            "quantity": 4.0,
+            "unit": "",
+            "name": "large eggs"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "chopped fresh cilantro"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "cup",
+            "name": "chopped fresh parsley"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "black pepper"
+        }
+    ],
+    "instructions": [
+        "Heat olive oil in a large skillet over medium heat. Add chopped onion and bell pepper, and cook until softened, about 5 minutes.",
+        "Add minced garlic, cumin, paprika, and coriander. Cook for another 1-2 minutes.",
+        "Pour in crushed tomatoes, salt, and pepper. Simmer for about 10 minutes until the sauce thickens.",
+        "Make small wells in the sauce and crack the eggs into them.",
+        "Cover the skillet and cook until the eggs are set, about 5-8 minutes.",
+        "Sprinkle with chopped cilantro and parsley before serving.",
+        "Serve hot with crusty bread."
+    ],
+    "servings": 4
+},
+{
+    "id": 716453,
+    "image": "https://images.kikar.co.il/cdn-cgi/image/format=jpeg,fit=contain,width=900/2015/05/06/06ec9eb0-0342-11ef-bda2-67c3ab9302bb__h667_w1000.jpg",
+    "title": "Falafel",
+    "readyInMinutes": 60,
+    "aggregateLikes": 450,
+    "vegetarian": true,
+    "vegan": true,
+    "glutenFree": true,
+    "summary": "Crispy chickpea patties seasoned with herbs and spices, served with tahini sauce.",
+    "ingredients": [
+        {
+            "quantity": 2.0,
+            "unit": "cup",
+            "name": "dried chickpeas"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "",
+            "name": "onion, chopped"
+        },
+        {
+            "quantity": 4.0,
+            "unit": "cloves",
+            "name": "garlic, minced"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "fresh parsley, chopped"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "ground cumin"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "ground coriander"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "baking powder"
+        },
+        {
+            "quantity": 0.25,
+            "unit": "teaspoon",
+            "name": "cayenne pepper"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "cup",
+            "name": "vegetable oil (for frying)"
+        }
+    ],
+    "instructions": [
+        "Place dried chickpeas in a large bowl and cover with cold water. Let soak overnight, then drain.",
+        "In a food processor, combine chickpeas, chopped onion, minced garlic, parsley, cumin, coriander, salt, baking powder, and cayenne pepper. Process until mixture forms a coarse paste.",
+        "Transfer mixture to a bowl, cover, and refrigerate for at least 1 hour.",
+        "Form mixture into small balls or patties.",
+        "In a large skillet, heat vegetable oil over medium-high heat. Fry falafel until browned and crispy, about 3-4 minutes per side.",
+        "Serve hot with tahini sauce, pita bread, and fresh vegetables."
+    ],
+    "servings": 6
+},
+{
+    "id": 716454,
+    "image": "https://d3o5sihylz93ps.cloudfront.net/wp-content/uploads/2020/10/27174522/%D7%A1%D7%A4%D7%92%D7%98%D7%99-%D7%A2%D7%9D-%D7%A8%D7%95%D7%98%D7%91-%D7%A2%D7%92%D7%91%D7%A0%D7%99%D7%95%D7%AA1.jpg",
+    "title": "Spaghetti with Red Sauce",
+    "readyInMinutes": 45,
+    "aggregateLikes": 620,
+    "vegetarian": false,
+    "vegan": false,
+    "glutenFree": false,
+    "summary": "Classic spaghetti served with a savory tomato-based meat sauce.",
+    "ingredients": [
+        {
+            "quantity": 8.0,
+            "unit": "oz",
+            "name": "spaghetti"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "",
+            "name": "onion, chopped"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "cloves",
+            "name": "garlic, minced"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "lb",
+            "name": "ground beef"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "can",
+            "name": "crushed tomatoes"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "dried oregano"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "dried basil"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "sugar"
+        },
+        {
+            "quantity": 1.0,
+            "unit": "teaspoon",
+            "name": "salt"
+        },
+        {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "name": "black pepper"
+        },
+        {
+            "quantity": 2.0,
+            "unit": "tablespoon",
+            "name": "olive oil"
+        }
+    ],
+    "instructions": [
+        "Cook spaghetti according to package instructions. Drain and set aside.",
+        "In a large skillet, heat olive oil over medium heat. Add chopped onion and cook until softened, about 5 minutes.",
+        "Add minced garlic and cook for another 1-2 minutes.",
+        "Add ground beef to the skillet. Cook until browned, breaking up the meat with a spoon.",
+        "Stir in crushed tomatoes, oregano, basil, sugar, salt, and black pepper. Simmer for 15-20 minutes, stirring occasionally.",
+        "Serve hot sauce over cooked spaghetti, garnished with grated Parmesan cheese if desired."
+    ],
+    "servings": 4
+}
+]
