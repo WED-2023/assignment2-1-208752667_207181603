@@ -88,9 +88,15 @@
               placeholder="Ingredient"
               required
             ></b-form-input>
-            <b-button @click="removeIngredient(index)" variant="danger">Remove</b-button>
+            
+            <b-button @click="removeIngredient(index)" variant="transparent">
+              <b-icon icon="x-circle" aria-hidden="true"></b-icon>
+            </b-button>
           </div>
-          <b-button @click="addIngredient" variant="success">Add Another Ingredient</b-button>
+          <b-button @click="addIngredient" variant="success">
+            <b-icon icon="plus" aria-hidden="true"></b-icon>
+            Add Ingredient
+          </b-button>
         </b-form-group>
 
         <b-form-group id="input-group-10" label="Instructions:">
@@ -102,9 +108,14 @@
               placeholder="Instruction"
               required
             ></b-form-textarea>
-            <b-button @click="removeInstruction(index)" variant="danger">Remove</b-button>
+            <b-button @click="removeInstruction(index)" variant="transparent">
+              <b-icon icon="x-circle" aria-hidden="true"></b-icon>
+            </b-button>
           </div>
-          <b-button @click="addInstruction" variant="success" style="margin-bottom: 10px;">Add Another Step</b-button>
+          <b-button @click="addInstruction" variant="success" style="margin-bottom: 10px;">
+            <b-icon icon="plus" aria-hidden="true"></b-icon>
+            Add Step
+          </b-button>
         </b-form-group>
 
         
@@ -118,7 +129,7 @@
 </template>
 
 <script>
-import { mockAddUserRecipe } from "../services/auth.js";
+import { mockAddUserRecipe } from "../services/user.js";
 
 export default {
   data() {
