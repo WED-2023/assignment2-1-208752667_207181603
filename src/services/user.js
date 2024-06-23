@@ -10,7 +10,7 @@ export function mockAddUserRecipe(recipeDetails) {
 }
 
 export function mockIsInFavoites(recipeId) {
-  return { status: 200, response: { data: { inFavorites: false}} };
+  return { status: 200, response: { data: { inFavorites: recipeId % 2 === 0}} };
 }
 
 export function mockviewedRecipe(recipeId) {

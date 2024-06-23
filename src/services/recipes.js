@@ -38,6 +38,7 @@ export function mockGetLastViewedRecipes(count) {
 }
 
 export function mockGetRecipeFullDetails(id) {
-  let recipe = example_recipes.find((r) => r.id === id);
-  return { status: 200, respose: {data: { recipe: recipe } }};
+  id = Number(id);
+  let recipe = example_recipes.find(example_recipe => example_recipe.id === id);
+  return { status: 200, response: {data: { recipe: recipe } }};
 }

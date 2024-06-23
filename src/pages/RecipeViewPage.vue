@@ -40,6 +40,7 @@ import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../servic
 import { mockGetRecipeFullDetails } from '../services/recipes';
 
 export default {
+  name: "RecipeViewPage",
   data() {
     return {
       recipe: null,
@@ -68,7 +69,7 @@ export default {
       this.$router.replace("/NotFound");
       return;
     }
-    this.recipe = responseReceived.respose.data.recipe;
+    this.recipe = responseReceived.response.data.recipe;
   },
   favoritesAction() {
       // Add or remove from favorites based on current state
