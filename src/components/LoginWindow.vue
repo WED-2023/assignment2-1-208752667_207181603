@@ -14,7 +14,7 @@
             :state="validateState('username')"
           ></b-form-input>
           <b-form-invalid-feedback>
-            Username is required
+            Invalid username
           </b-form-invalid-feedback>
         </b-form-group>
   
@@ -31,7 +31,7 @@
             :state="validateState('password')"
           ></b-form-input>
           <b-form-invalid-feedback>
-            Password is required
+            Invalid password
           </b-form-invalid-feedback>
         </b-form-group>
   
@@ -62,75 +62,82 @@
     </div>
   </template>
   
-  <script>
-  import { required } from "vuelidate/lib/validators";
-  import {mockLogin} from "../services/auth.js"
-  export default {
-    name: "Login",
-    data() {
-      return {
-        form: {
-          username: "",
-          password: "",
-          submitError: undefined
-        }
-      };
-    },
-    validations: {
+<script>
+import {mockLogin} from "../services/auth.js"
+import {required, minLength, maxLength, alpha, helpers} from "vuelidate/lib/validators";
+const specialCharacterValidator = helpers.regex('specialCharacterValidator', /^(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/);
+const digitCharacterValidator = helpers.regex('digitCharacterValidator', /^(?=.*\d)/);
+export default {
+  name: "Login",
+  data() {
+    return {
       form: {
-        username: {
-          required
-        },
-        password: {
-          required
-        }
+        username: "",
+        password: "",
+        submitError: undefined
       }
-    },
-    methods: {
-      validateState(param) {
-        const { $dirty, $error } = this.$v.form[param];
-        return $dirty ? !$error : null;
+    };
+  },
+  validations: {
+    form: {
+      username: {
+        required,
+        length: (u) => minLength(3)(u) && maxLength(8)(u),
+        alpha
       },
-      async Login() {
-        let success;
-        try {
-          // const response = await this.axios.post(
-          //   this.$root.store.server_domain +"/Login",  
-          //   {
-          //     username: this.form.username,
-          //     password: this.form.password
-          //   }
-          // );
-          const expectedSuccess = true; // modify this to test the error handling
-          let credentials = {
-            username: this.form.username,
-            password: this.form.password
-          };
-          const response = mockLogin(credentials, expectedSuccess);
-          success = response.response.data.success;
-          if (success) {
-            this.$root.store.login(this.form.username);
-          }
-        } catch (err) {
-          console.log(err.response);
-          this.form.submitError = err.response.data.message;
-        };
-        let message = success ? "Welcome " + this.form.username : "Login failed";
-        this.$root.toast("Logging " + this.form.username, message, success);
-      },
-  
-      onLogin() {
-        this.form.submitError = undefined;
-        this.$v.form.$touch();
-        if (this.$v.form.$anyError) {
-          return;
-        }
-  
-        this.Login();
+      password: {
+        required,
+        specialCharacterValidator,
+        digitCharacterValidator,
+        length: (p) => minLength(5)(p) && maxLength(10)(p),
       }
     }
-  };
-  </script>
+  },
+  methods: {
+    validateState(param) {
+      const { $dirty, $error } = this.$v.form[param];
+      return $dirty ? !$error : null;
+    },
+    async Login() {
+      let success;
+      try {
+        // const response = await this.axios.post(
+        //   this.$root.store.server_domain +"/Login",  
+        //   {
+        //     username: this.form.username,
+        //     password: this.form.password
+        //   }
+        // );
+        const expectedSuccess = true; // modify this to test the error handling
+        let credentials = {
+          username: this.form.username,
+          password: this.form.password
+        };
+        const response = mockLogin(credentials, expectedSuccess);
+        success = response.response.data.success;
+        if (success) {
+          this.$root.store.login(this.form.username);
+        }
+      } catch (err) {
+        console.log(err.response);
+        this.form.submitError = err.response.data.message;
+      };
+      let message = success ? "Welcome " + this.form.username : "Login failed";
+      this.$root.toast("Logging " + this.form.username, message, success);
+    },
+
+    onLogin() {
+      this.form.submitError = undefined;
+      this.$v.form.$touch();
+      if (this.$v.form.$anyError) {
+        return;
+      }
+
+      this.Login();
+    }
+  }
+};
+</script>
   <style lang="scss" scoped>
   .container {
     max-width: 400px;
