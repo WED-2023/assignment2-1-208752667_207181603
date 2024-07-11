@@ -12,8 +12,7 @@
       </b-button>
       <b-card-sub-title style="height: 50px;">{{ summaryTrimmed }}</b-card-sub-title>
       <template #footer>
-        <img v-if="viewed" src="https://cdn3.iconfinder.com/data/icons/eyes-glyph-1/32/Check_eye_Watched_Access_View_Seen_eye-512.png" width="20px" alt="seen" title="You already viewed this recipe">
-        <small class="text-muted"> | Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
+        <small class="text-muted">Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
         <img src="../assets/like.png" width="15px" alt="like">
         <small class="text-muted"> | </small> 
         <img src="../assets/gluten-free-icon.png" width="20px" alt="gluten" v-if="recipe.glutenFree" title="Gluten Free"> 
@@ -25,7 +24,7 @@
 </template>  
 
 <script>
-import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites, mockviewedRecipe } from '../services/user';
+import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../services/user';
 
 export default {
   props: {
@@ -39,8 +38,7 @@ export default {
     return {
       summaryTrimmed : this.recipe.summary.substring(0, 90) + "...",
       // Replace the mocks
-      inFavorites: mockIsInFavoites(this.recipe.id).response.data.inFavorites,
-      viewed: mockviewedRecipe(this.recipe.id).response.data.seen
+      inFavorites: mockIsInFavoites(this.recipe.id).response.data.inFavorites
     };
   },
   

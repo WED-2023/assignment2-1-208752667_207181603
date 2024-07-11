@@ -38,12 +38,27 @@
 export default {
   name: "NavigationBar",
   methods: {
-    Logout() {
-      this.$root.store.logout();
+    async Logout() {
+      let success;
+      let message;
+      try {
+        const response = await this.axios.post(
+          this.$root.store.server_domain +"/Logout",
+          {}
+        );
+        success = response.data.success;
+        message = success ? "User logged out successfully" : "Failed logging out";
+        if (success) {
+          this.$root.store.logout();
+        }
+      } catch (err) {
+        message = err.response.data.message;
+        success = false;
+      };
       this.$router.push("/").catch(() => {
         this.$forceUpdate();
       });
-      this.$root.toast("Logout", "User logged out successfully", "success");
+      this.$root.toast("Logout", message, "success");
     }
   }
 };

@@ -1,21 +1,21 @@
 <template>
   <div class="container">
     <h1 class="title">Grammy's Goodies</h1>
-    <b-row>
+    <b-row v-if="!$root.store.username">
       <b-col>
         <b-card>
           <div class="random-recipes">
-            <RandomRecipes />
+            <RandomRecipes :rowSizeComponent="true"/>
           </div>
         </b-card>
       </b-col>
       <b-col>
         <b-card class="user-specific-card">
-          <LoginWindow v-if="!$root.store.username"/>
-          <LastViewedRecipes v-else/>
+          <LoginWindow/>
         </b-card>
       </b-col>
     </b-row>
+    <RandomRecipes v-else/>
   </div>
 </template>
 

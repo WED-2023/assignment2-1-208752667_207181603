@@ -102,15 +102,6 @@
         <router-link to="login"> Log in here</router-link>
       </div>
     </b-form>
-    <b-alert
-      class="mt-2"
-      v-if="form.submitError"
-      variant="warning"
-      dismissible
-      show
-    >
-      Register failed: {{ form.submitError }}
-    </b-alert>
     <!-- <b-card class="mt-3 md-3" header="Form Data Result">
       <pre class="m-0"><strong>form:</strong> {{ form }}</pre>
       <pre class="m-0"><strong>$v.form:</strong> {{ $v.form }}</pre>
@@ -129,7 +120,6 @@ import {
   helpers,
   email
 } from "vuelidate/lib/validators";
-import { mockRegister } from "../services/auth.js";
 
 const specialCharacterValidator = helpers.regex('specialCharacterValidator', /^(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/);
 const digitCharacterValidator = helpers.regex('digitCharacterValidator', /^(?=.*\d)/);
@@ -198,49 +188,47 @@ export default {
       return $dirty ? !$error : null;
     },
     async Register() {
+      let success;
+      let title = "Registration Failed";
+      let message;
       try {
 
-        // const response = await this.axios.post(
-        //   // "https://test-for-3-2.herokuapp.com/user/Register",
-        //   this.$root.store.server_domain + "/Register",
-
-        //   {
-        //     username: this.form.username,
-        //     password: this.form.password
-        //   }
-        // );
-
-        const userDetails = {
+        const response = await this.axios.post(
+          this.$root.store.server_domain + "/Register",
+          {
           username: this.form.username,
-          password: this.form.password,
-          email: this.form.email,
           firstName: this.form.firstName,
           lastName: this.form.lastName,
-          country: this.form.country
-        };
-
-        const response = mockRegister(userDetails);
-
-        success = response.response.data.success;
+          country: this.form.country,
+          password: this.form.password,
+          email: this.form.email
+        }
+        );
+        success = response.data.success;
+        message = response.data.message;
+        if (success) {
+          this.$root.store.login(this.form.username);
+          title = "Welcome " + this.form.username;
+        }
         } catch (err) {
-          console.log(err.response);
+          message = err.response.data.message;
           this.form.submitError = err.response.data.message;
-        }
-        let message = success ? "Welcome " + this.form.username : "Login failed";
-        if(success){
-          this.$root.store.username = this.form.username;
-        }
-        this.$root.toast("Logging " + this.form.username, message, success);
+          success = false;  
+      };
+        this.$root.toast(title, message, success);
+        return success;
     },
 
-    onRegister() {
-      // console.log("register method called");
+    async onRegister() {
       this.$v.form.$touch();
       if (this.$v.form.$anyError) {
         return;
       }
-      // console.log("register method go");
-      this.Register();
+      if(await this.Register()){
+        this.$router.push("/").catch(() => {
+        this.$forceUpdate();
+      });
+      }
     },
     onReset() {
       this.form = {

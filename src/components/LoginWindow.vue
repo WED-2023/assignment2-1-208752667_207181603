@@ -48,15 +48,6 @@
           <router-link to="register"> Register in here</router-link>
         </div>
       </b-form>
-      <b-alert
-        class="mt-2"
-        v-if="form.submitError"
-        variant="warning"
-        dismissible
-        show
-      >
-        Login failed: {{ form.submitError }}
-      </b-alert>
       <!-- <b-card class="mt-3" header="Form Data Result">
         <pre class="m-0">{{ form }}</pre>
       </b-card> -->
@@ -101,40 +92,40 @@ export default {
     },
     async Login() {
       let success;
+      let message;
       try {
-        // const response = await this.axios.post(
-        //   this.$root.store.server_domain +"/Login",  
-        //   {
-        //     username: this.form.username,
-        //     password: this.form.password
-        //   }
-        // );
-        const expectedSuccess = true; // modify this to test the error handling
-        let credentials = {
-          username: this.form.username,
-          password: this.form.password
-        };
-        const response = mockLogin(credentials, expectedSuccess);
-        success = response.response.data.success;
+        const response = await this.axios.post(
+          this.$root.store.server_domain +"/Login",  
+          {
+            username: this.form.username,
+            password: this.form.password
+          }
+        );
+        success = response.data.success;
+        message = success ? "Welcome " + this.form.username : "Failed to login with the given information";
         if (success) {
           this.$root.store.login(this.form.username);
         }
       } catch (err) {
-        console.log(err.response);
+        message = err.response.data.message;
         this.form.submitError = err.response.data.message;
+        success = false;
       };
-      let message = success ? "Welcome " + this.form.username : "Login failed";
-      this.$root.toast("Logging " + this.form.username, message, success);
+      this.$root.toast(success ? "Logging completed successfully" : "Loging Failed", message, success);
+      return success;
     },
 
-    onLogin() {
+    async onLogin() {
       this.form.submitError = undefined;
       this.$v.form.$touch();
       if (this.$v.form.$anyError) {
         return;
       }
-
-      this.Login();
+      if(await this.Login()){
+        this.$router.push("/").catch(() => {
+        this.$forceUpdate();
+      });
+      }
     }
   }
 };

@@ -12,7 +12,7 @@ function shuffle(array) {
   }
 }
 
-export function mockGetRandomRecipes(amount=3) {
+export function mockGetRandomRecipes(amount) {
   let recipes = JSON.stringify(example_recipes);
   recipes = JSON.parse(recipes);
   

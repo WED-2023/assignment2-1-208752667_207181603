@@ -33,7 +33,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-11" label="Dishes:" label-for="input-11">
+        <b-form-group id="input-group-4" label="Dishes:" label-for="input-11">
           <b-form-input
             id="input-11"
             v-model.number="form.servings"
@@ -55,7 +55,7 @@
           <b-form-checkbox v-model="form.glutenFree">Gluten-Free</b-form-checkbox>
         </b-form-group>
 
-        <b-form-group id="input-group-8" label="Summary:" label-for="input-8">
+        <b-form-group id="input-group-9" label="Summary:" label-for="input-8">
           <b-form-textarea
             id="input-8"
             v-model="form.summary"
@@ -66,7 +66,11 @@
           ></b-form-textarea>
         </b-form-group>
 
-        <b-form-group id="input-group-9" label="Ingredients:">
+        <b-form-group id="input-group-10">
+          <b-form-checkbox v-model="form.familyRecipe">Family Recipe</b-form-checkbox>
+        </b-form-group>
+
+        <b-form-group id="input-group-11" label="Ingredients:">
           <div v-for="(ingredient, index) in form.ingredients" :key="index" class="d-flex mb-2">
             <b-form-input
               v-model.number="ingredient.quantity"
@@ -99,7 +103,7 @@
           </b-button>
         </b-form-group>
 
-        <b-form-group id="input-group-10" label="Instructions:">
+        <b-form-group id="input-group-12" label="Instructions:">
           <div v-for="(instruction, index) in form.instructions" :key="index" class="d-flex mb-2">
             <b-form-textarea
               v-model="form.instructions[index]"
@@ -141,6 +145,7 @@ export default {
         vegetarian: false,
         vegan: false,
         glutenFree: false,
+        familyRecipe: false,
         summary: '',
         ingredients: [],
         instructions: [],
@@ -170,6 +175,7 @@ export default {
           vegetarian: this.form.vegetarian,
           vegan: this.form.vegan,
           glutenFree: this.form.glutenFree,
+          familyRecipe: this.form.familyRecipe,
           summary: this.form.summary,
           ingredients: this.form.ingredients,
           instructions: this.form.instructions,
@@ -207,6 +213,7 @@ export default {
         vegetarian: false,
         vegan: false,
         glutenFree: false,
+        familyRecipe: false,
         summary: '',
         ingredients: [],
         instructions: [],
