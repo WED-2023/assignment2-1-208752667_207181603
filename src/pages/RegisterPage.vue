@@ -135,8 +135,7 @@ export default {
         country: null,
         password: "",
         confirmedPassword: "",
-        email: "",
-        submitError: undefined
+        email: ""
       },
       countries: [{ value: null, text: "", disabled: true }],
       errors: [],
@@ -212,7 +211,6 @@ export default {
         }
         } catch (err) {
           message = err.response.data.message;
-          this.form.submitError = err.response.data.message;
           success = false;  
       };
         this.$root.toast(title, message, success);

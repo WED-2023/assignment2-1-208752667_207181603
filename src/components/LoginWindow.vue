@@ -55,7 +55,6 @@
   </template>
   
 <script>
-import {mockLogin} from "../services/auth.js"
 import {required, minLength, maxLength, alpha, helpers} from "vuelidate/lib/validators";
 const specialCharacterValidator = helpers.regex('specialCharacterValidator', /^(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/);
 const digitCharacterValidator = helpers.regex('digitCharacterValidator', /^(?=.*\d)/);
@@ -65,8 +64,7 @@ export default {
     return {
       form: {
         username: "",
-        password: "",
-        submitError: undefined
+        password: ""
       }
     };
   },
@@ -108,7 +106,6 @@ export default {
         }
       } catch (err) {
         message = err.response.data.message;
-        this.form.submitError = err.response.data.message;
         success = false;
       };
       this.$root.toast(success ? "Logging completed successfully" : "Loging Failed", message, success);
@@ -116,7 +113,6 @@ export default {
     },
 
     async onLogin() {
-      this.form.submitError = undefined;
       this.$v.form.$touch();
       if (this.$v.form.$anyError) {
         return;

@@ -1,13 +1,12 @@
 <template>
-    <div>
-        <h3>Random Recipes</h3>
+    <div class="container">
+        <h1 class="title">Family Recipes</h1>
         <RecipePreviewList :recipes="recipes" />
     </div>
 </template>
 
 <script>
 import RecipePreviewList from "../components/RecipePreviewList.vue";
-import { mockGetFamilyRecipes } from "../services/recipes.js";
 
 export default {
     name: "FamilyRecipes",
@@ -22,11 +21,11 @@ export default {
     methods: {
         async updateRecipes() {
             try {
-                // Replace the mock
-                const response = mockGetFamilyRecipes(); 
-                this.recipes = response.data.recipes;
+                const response = await this.axios.get(
+                this.$root.store.server_domain + "/users/family");
+                this.recipes = response.data;
             } catch (error) {
-                console.log(error);
+                this.$root.toast("Getting user family recipes failed", error.response.data.message, false);
             }
         }
     },

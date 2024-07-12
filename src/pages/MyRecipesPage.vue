@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <h1 style="padding-top: 100px;">My Recipes</h1>
+  <div class="container">
+      <h1 class="title">My Recipes</h1>
       <RecipePreviewList :recipes="myRecipes" style="margin-top: 9.3%;"/>
   </div>
 </template>
@@ -8,7 +8,6 @@
 <script>
 
 import RecipePreviewList from "../components/RecipePreviewList";
-import { mockGetMyRecipes } from "../services/recipes.js";
 
 export default {
     name: "MyRecipesPage",
@@ -25,17 +24,13 @@ export default {
     },
     methods: {
         async getMyRecipes() {
-            let recipesList = [];
             try {
-
-            // Replace the mock
-            const response = mockGetMyRecipes(3);
-            recipesList = response.data.recipes;
+                const response = await this.axios.get(
+                this.$root.store.server_domain + "/users/recipes");
+                this.myRecipes = response.data;
             } catch (error) {
-                console.log(error);
+                this.$root.toast("Getting user recipes failed", error.response.data.message, false);
             }
-            this.myRecipes = [];
-            this.myRecipes.push(...recipesList);
         }
     }
 };

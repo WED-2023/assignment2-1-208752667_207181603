@@ -3,7 +3,7 @@
 
     <p class="my-4">
 
-      <b-form @submit="onSubmit" @reset="onReset" v-if="show">
+      <b-form @submit.prevent="onSubmit" @reset.prevent="onReset" v-if="show">
         <b-form-group id="input-group-1" label="Recipe Name:" label-for="input-1">
           <b-form-input
             id="input-1"
@@ -71,12 +71,12 @@
         </b-form-group>
 
         <b-form-group id="input-group-11" label="Ingredients:">
-          <div v-for="(ingredient, index) in form.ingredients" :key="index" class="d-flex mb-2">
+          <div v-for="(ingredient, index) in form.extendedIngredients" :key="index" class="d-flex mb-2">
             <b-form-input
-              v-model.number="ingredient.quantity"
+              v-model.number="ingredient.amount"
               type="number"
               class="mr-2"
-              placeholder="Quantity"
+              placeholder="Amount"
               required
               min="0"
             ></b-form-input>
@@ -104,9 +104,9 @@
         </b-form-group>
 
         <b-form-group id="input-group-12" label="Instructions:">
-          <div v-for="(instruction, index) in form.instructions" :key="index" class="d-flex mb-2">
+          <div v-for="(instruction, index) in form.analyzedInstructions" :key="index" class="d-flex mb-2">
             <b-form-textarea
-              v-model="form.instructions[index]"
+              v-model="instruction.step"
               rows="2"
               class="mr-2"
               placeholder="Instruction"
@@ -133,7 +133,6 @@
 </template>
 
 <script>
-import { mockAddUserRecipe } from "../services/user.js";
 
 export default {
   data() {
@@ -147,8 +146,8 @@ export default {
         glutenFree: false,
         familyRecipe: false,
         summary: '',
-        ingredients: [],
-        instructions: [],
+        extendedIngredients: [],
+        analyzedInstructions: [],
         servings: 1
       },
       show: true
@@ -156,50 +155,44 @@ export default {
   },
   methods: {
     async addRecipe() {
+      let success;
+      let message;
+      let nestedSteps = [{steps: this.form.analyzedInstructions}];
       try {
 
-        // const response = await this.axios.post(
-        //   // "https://test-for-3-2.herokuapp.com/user/Register",
-        //   this.$root.store.server_domain + "/Register",
-
-        //   {
-        //     username: this.form.username,
-        //     password: this.form.password
-        //   }
-        // );
-
-        const recipeDetails = {
-          title: this.form.title,
+        const response = await this.axios.post(
+          this.$root.store.server_domain + "/users/recipes",
+          {
           image: this.form.image,
+          title: this.form.title,
           readyInMinutes: this.form.readyInMinutes,
+          servings: this.form.servings,
           vegetarian: this.form.vegetarian,
           vegan: this.form.vegan,
           glutenFree: this.form.glutenFree,
           familyRecipe: this.form.familyRecipe,
           summary: this.form.summary,
-          ingredients: this.form.ingredients,
-          instructions: this.form.instructions,
-          servings: this.form.servings
-        };
+          extendedIngredients: this.form.extendedIngredients,
+          analyzedInstructions: nestedSteps
+          }
+        );
 
-        const response = mockAddUserRecipe(recipeDetails);
-
-        success = response.response.data.success;
-        } catch (err) {
-          console.log(err.response);
-          this.form.submitError = err.response.data.message;
+        success = response.data.success;
+        message = response.data.message;
+        } 
+        catch (err) {
+          message = err.response.data.message;
+          success = false;
         }
+        this.$root.toast("Creating " + this.form.title, message, success);
         return success;
     },
-    onSubmit(event) {
-      let success = addRecipe();
-      event.preventDefault();
-      this.closeModalAndReset();
-      let message = success ? "Recipe created successfully" : "Failed to create recipe";
-      this.$root.toast("Creating " + this.form.title, message, success);
+    async onSubmit() {
+      if(await this.addRecipe()){
+        this.closeModalAndReset();
+      }
     },
-    onReset(event) {
-      event.preventDefault();
+    onReset() {
       this.resetForm();
     },
     onCancel() {
@@ -215,8 +208,8 @@ export default {
         glutenFree: false,
         familyRecipe: false,
         summary: '',
-        ingredients: [],
-        instructions: [],
+        extendedIngredients: [],
+        analyzedInstructions: [],
         servings: 1
       };
       this.show = false;
@@ -229,16 +222,17 @@ export default {
       this.resetForm();
     },
     addIngredient() {
-      this.form.ingredients.push({ quantity: 0, unit: '', name: '' });
+      this.form.extendedIngredients.push(
+        { amount: 0, unit: '', name: '' });
     },
     removeIngredient(index) {
-      this.form.ingredients.splice(index, 1);
+      this.form.extendedIngredients.splice(index, 1);
     },
     addInstruction() {
-      this.form.instructions.push('');
+      this.form.analyzedInstructions.push({step: ''});
     },
     removeInstruction(index) {
-      this.form.instructions.splice(index, 1);
+      this.form.analyzedInstructions.splice(index, 1);
     }
   }
 };

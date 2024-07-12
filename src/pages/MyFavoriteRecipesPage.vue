@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <h1 style="padding-top: 100px;">Favorites</h1>
+  <div class="container">
+      <h1 class="title">Favorites</h1>
       <RecipePreviewList :recipes="favoriteRecipes" style="margin-top: 9.3%;"/>
   </div>
 </template>
@@ -8,7 +8,6 @@
 <script>
 
 import RecipePreviewList from "../components/RecipePreviewList";
-import { mockGetFavoritesRecipes } from "../services/recipes.js";
 
 export default {
     name: "MyFavoriteRecipesPage",
@@ -25,17 +24,13 @@ export default {
     },
     methods: {
         async getFavoriteRecipes() {
-            let recipesList = [];
             try {
-
-            // Replace the mock
-            const response = mockGetFavoritesRecipes(3);
-            recipesList = response.data.recipes;
+                const response = await this.axios.get(
+                this.$root.store.server_domain + "/users/favorites");
+                this.favoriteRecipes = response.data;
             } catch (error) {
-                console.log(error);
+                this.$root.toast("Getting user favorite recipes failed", error.response.data.message, false);
             }
-            this.favoriteRecipes = [];
-            this.favoriteRecipes.push(...recipesList);
         }
     }
 };

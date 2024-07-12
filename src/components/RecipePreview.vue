@@ -5,7 +5,7 @@
         <b-card-img :src="recipe.image" img-alt="Card image" class="squared-image" img-top style="height: 300px; "></b-card-img>
         <b-card-title>{{ recipe.title }} </b-card-title>
       </router-link>
-      <b-button v-if="$root.store.username" :pressed.sync="inFavorites" variant="outline-warning" class="mb-2"  @click="favoritesAction">
+      <b-button v-if="$root.store.username" :pressed="inFavorites" variant="outline-warning" class="mb-2"  @click.prevent="favoritesAction">
         <b-icon v-if="inFavorites" icon="star-fill" aria-hidden="true" class=""></b-icon>
         <b-icon v-else icon="star" aria-hidden="true" class=""></b-icon>
         Add to Favorites
@@ -24,7 +24,6 @@
 </template>  
 
 <script>
-import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../services/user';
 
 export default {
   props: {
@@ -33,32 +32,54 @@ export default {
       required: true
     }
   },
-
+    mounted() {
+        this.isInFavorites();
+    },
   data() {
     return {
       summaryTrimmed : this.recipe.summary.substring(0, 90) + "...",
-      // Replace the mocks
-      inFavorites: mockIsInFavoites(this.recipe.id).response.data.inFavorites
+      inFavorites: false
     };
   },
   
   methods: {
-    favoritesAction() {
-      // Add or remove from favorites based on current state
-      this.inFavorites = !this.inFavorites;
-      let response;
-      if (this.inFavorites == true) {
-        // Replace the mock
-        response = mockRemoveFavorite(this.recipe.id);
-      } else {
-        // Replace the mock
-        response = mockAddFavorite(this.recipe.id);
+    async isInFavorites() {
+      try {
+          const response = await this.axios.get(
+          this.$root.store.server_domain + "/users/favorites");
+          let favoriteRecipes = response.data;
+          if(favoriteRecipes.find((recipe) => recipe.id === this.recipe.id)) {
+            this.inFavorites = true;
+          }
+      } catch (error) {
+          console.log(error);
       }
-      this.$root.toast(this.recipe.title, response.response.data.message, response.response.data.success);
-      if(!response.response.data.status)
-      {
+    },
+    async favoritesAction() {
+      // Add or remove from favorites based on current state
+      let success;
+      let message;
+      
+      try{
+        const response = await this.axios.post(
+          this.$root.store.server_domain + "/users/favorites",
+          {
+            id: this.recipe.id
+          }
+        );
+        success = response.data.success;
+        message = response.data.message;
+      }
+      catch(err){
+        message = err.response.data.message;
+        success = false;
+      }
+
+      if(success){
         this.inFavorites = !this.inFavorites;
       }
+      
+      this.$root.toast(this.recipe.title, message, success);
     }
   }
 };
