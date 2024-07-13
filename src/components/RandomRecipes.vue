@@ -14,7 +14,6 @@
 <script>
 import RecipePreviewList from "./RecipePreviewList.vue";
 import RowRecipePreviews from "./RowRecipePreviews.vue";
-import { mockGetRandomRecipes } from "../services/recipes.js";
 export default {
     name: "RandomRecipes",
     components: {
@@ -26,7 +25,7 @@ export default {
             type: Number,
             required: false,
             default() {
-                return 3;
+                return 1; // TODO CHANGE TO 3!
             }
         },
         rowSizeComponent: {
@@ -48,20 +47,15 @@ export default {
     methods: {
         async updateRecipes() {
             let fetchCount = this.rowSizeComponent ? this.amountOfRecipes : 2 * this.amountOfRecipes;
-            let recipesList = [];
-            try {
-            // const response = await this.axios.get(
-            //   this.$root.store.server_domain + "/recipes/random",
-            // );
 
-            // Replace the mock
-            const response = mockGetRandomRecipes(fetchCount);
-            recipesList = response.data.recipes;
+            try{
+                const response = await this.axios.get(
+                    this.$root.store.server_domain + `/recipes/random/${fetchCount}`
+                );
+                this.recipes = response.data.recipes;
             } catch (error) {
                 console.log(error);
             }
-            this.recipes = [];
-            this.recipes.push(...recipesList);
         }
     }
 }

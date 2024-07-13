@@ -15,9 +15,9 @@
         <small class="text-muted">Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
         <img src="../assets/like.png" width="15px" alt="like">
         <small class="text-muted"> | </small> 
-        <img src="../assets/gluten-free-icon.png" width="20px" alt="gluten" v-if="recipe.glutenFree" title="Gluten Free"> 
-        <img src="https://clipground.com/images/vegan-png-7.png" width="20px" alt="vegen" v-if="recipe.vegan" title="Vegan"> 
-        <img src="https://cdn1.iconfinder.com/data/icons/flat-green-organic-natural-badges/500/Vegetarian-2-512.png" width="20px" alt="vegetarian" v-if="recipe.vegetarian" title="Vegetarian">
+        <img src="../assets/gluten-free-icon.png" width="20px" alt="gluten free" v-if="recipe.glutenFree"> 
+        <img src="../assets/vegan-icon.png" width="20px" alt="vegen" v-if="recipe.vegan"> 
+        <img src="../assets/vegetarian-icon.png" width="20px" alt="vegetarian" v-if="recipe.vegetarian">
       </template>
     </b-card>
   </div>
@@ -32,9 +32,9 @@ export default {
       required: true
     }
   },
-    mounted() {
-        this.isInFavorites();
-    },
+  mounted() {
+      this.isInFavorites();
+  },
   data() {
     return {
       summaryTrimmed : this.recipe.summary.substring(0, 90) + "...",
@@ -44,11 +44,13 @@ export default {
   
   methods: {
     async isInFavorites() {
+      if(!this.$root.store.username){
+        return;
+      }
       try {
           const response = await this.axios.get(
-          this.$root.store.server_domain + "/users/favorites");
-          let favoriteRecipes = response.data;
-          if(favoriteRecipes.find((recipe) => recipe.id === this.recipe.id)) {
+          this.$root.store.server_domain + "/users/favorites/" + this.recipe.id);
+          if(response.data) {
             this.inFavorites = true;
           }
       } catch (error) {
@@ -77,6 +79,7 @@ export default {
 
       if(success){
         this.inFavorites = !this.inFavorites;
+        this.recipe.aggregateLikes += this.inFavorites ? 1 : -1;
       }
       
       this.$root.toast(this.recipe.title, message, success);

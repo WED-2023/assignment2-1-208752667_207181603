@@ -1,93 +1,108 @@
 <template>
   <div class="container">
-    <b-card style="margin-top: 20px;">
+    <b-card v-if="recipe" style="margin-top: 20px;">
       <h1>{{ recipe.title }}</h1>
       <b-card-img :src="recipe.image" img-alt="Card image" class="squared-image" img-top></b-card-img>
       <h2>{{ recipe.summary }}</h2>
       <h3>
-          <small class="text-muted">{{ recipe.readyInMinutes }} mins to cook | {{ recipe.aggregateLikes }} people likes | For {{ recipe.servings }} dishes</small>
-          <small v-if="recipe.glutenFree" class="text-muted"> | Gluten Free</small>
-          <small v-if="recipe.vegetarian" class="text-muted"> | Vegetarian</small>
-          <small v-if="recipe.vegan" class="text-muted"> | Vegan</small>
+        <small class="text-muted">{{ recipe.readyInMinutes }} mins to cook | {{ recipe.aggregateLikes }} people likes | For {{ recipe.servings }} dishes</small>
+        <small v-if="recipe.glutenFree" class="text-muted"> | Gluten Free</small>
+        <small v-if="recipe.vegetarian" class="text-muted"> | Vegetarian</small>
+        <small v-if="recipe.vegan" class="text-muted"> | Vegan</small>
       </h3>
-      <b-button v-if="$root.store.username" :pressed.sync="inFavorites" variant="outline-warning" class="mb-2"  @click="favoritesAction">
+      <b-button v-if="$root.store.username" :pressed="inFavorites" variant="outline-warning" class="mb-2" @click.prevent="favoritesAction">
         <b-icon v-if="inFavorites" icon="star-fill" aria-hidden="true" class=""></b-icon>
         <b-icon v-else icon="star" aria-hidden="true" class=""></b-icon>
         Add to Favorites
       </b-button>
-      <div class="ingiridients">
+      <div class="Ingredients">
         <h2>Ingredients</h2>
         <ul>
-          <li v-for="ingredient in recipe.ingredients" :key="ingredient.name">
-            {{ ingredient.quantity }} {{ ingredient.unit }} of {{ ingredient.name }}
+          <li v-for="ingredient in recipe.extendedIngredients" :key="ingredient.name">
+            {{ ingredient.amount }} {{ ingredient.unit }} of {{ ingredient.name }}
           </li>
         </ul>
       </div>
       <div class="instructions">
         <h2>Instructions</h2>
         <ol>
-          <li v-for="step in recipe.instructions" :key="step">
-            {{ step }}
+          <li v-for="stepDetails in recipe.analyzedInstructions[0].steps" :key="stepDetails.step">
+            {{ stepDetails.step }}
           </li>
         </ol>
       </div>
     </b-card>
+    <div v-else>Loading...</div>
   </div>
 </template>
 
 <script>
-import { mockAddFavorite, mockRemoveFavorite, mockIsInFavoites } from '../services/user';
-import { mockGetRecipeFullDetails } from '../services/recipes';
-
 export default {
   name: "RecipeViewPage",
   data() {
     return {
       recipe: null,
-      // Replace the mocks
-      inFavorites: mockIsInFavoites(this.$route.params.id).response.data.inFavorites
+      inFavorites: false
     };
   },
-  async created() {
-    let responseReceived;
-    try{
-      // recipe_received = await this.axios.get(
-      //   this.$root.store.server_domain + "/recipes/" + this.$route.params.recipeId,
-      //   {
-      //     withCredentials: true
-      //   }
-      // );
-      responseReceived = mockGetRecipeFullDetails(this.$route.params.id);
-    }
-    catch (error) {
-      console.log(error);
-      this.$router.replace("/NotFound");
-      return;
-    }
-    if (responseReceived.status !== 200){
-      console.log(responseReceived.status)
-      this.$router.replace("/NotFound");
-      return;
-    }
-    this.recipe = responseReceived.response.data.recipe;
+  async created() { // Changed from createRecipe to created lifecycle hook
+    await this.createRecipe();
+    await this.isInFavorites();
   },
   methods: {
-    favoritesAction() {
+    async createRecipe() {
+      try {
+        const recipe_received = await this.axios.get(
+          this.$root.store.server_domain + "/recipes/" + this.$route.params.id
+        );
+        if (recipe_received.data.success) {
+          this.recipe = recipe_received.data.recipe;
+        }
+      } catch (error) {
+        console.log(error);
+        this.$root.toast("Loading Failed", "Failed to find the requested recipe in the database", false);
+      }
+    },
+    async isInFavorites() {
+      if (!this.$root.store.username) {
+        return;
+      }
+      try {
+        const response = await this.axios.get(
+          this.$root.store.server_domain + "/users/favorites/" + this.recipe.id
+        );
+        if (response.data) {
+          this.inFavorites = true;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async favoritesAction() {
       // Add or remove from favorites based on current state
-      this.inFavorites = !this.inFavorites;
-      let response;
-      if (this.inFavorites == true) {
-        // Replace the mock
-        response = mockRemoveFavorite(this.recipe.id);
-      } else {
-        // Replace the mock
-        response = mockAddFavorite(this.recipe.id);
+      let success;
+      let message;
+
+      try {
+        const response = await this.axios.post(
+          this.$root.store.server_domain + "/users/favorites",
+          {
+            id: this.recipe.id
+          }
+        );
+        success = response.data.success;
+        message = response.data.message;
+      } catch (err) {
+        message = err.response.data.message;
+        success = false;
       }
-      this.$root.toast(this.recipe.title, response.response.data.message, response.response.data.success);
-      if(!response.response.data.status)
-      {
+
+      if (success) {
         this.inFavorites = !this.inFavorites;
+        this.recipe.aggregateLikes += this.inFavorites ? 1 : -1;
       }
+
+      this.$root.toast(this.recipe.title, message, success);
     }
   }
 };
