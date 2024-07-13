@@ -38,7 +38,6 @@ import RecipePreviewList from "../components/RecipePreviewList";
 import intolerances from "../assets/intolerances";
 import diets from "../assets/diets";
 import cuisines from "../assets/cuisines";
-import { mockGetSearchResults } from "../services/recipes.js";
 
 export default {
   components: {
@@ -69,16 +68,23 @@ export default {
         return (1 - this.selected) * (b.aggregateLikes - a.aggregateLikes) + this.selected * (a.readyInMinutes - b.readyInMinutes);
       });
     },
-    getSearchResults() {
+    async getSearchResults() {
       let recipesList = [];
       try {
-        // const response = await this.axios.get(
-        //   this.$root.store.server_domain + "/recipes/random",
-        // );
+        const response = await this.axios.get(
+          this.$root.store.server_domain + "/recipes/search", {
+            params: {
+              recipeName: this.query,
+              cuisine: this.cuisinesSelected.join(' '),
+              diet: this.dietsSelected.join(' '),
+              intolerance: this.intolerancesSelected.join(' '),
+              number: this.limit
+            }
+          }
+        );
 
-        // Replace the mock
-        const response = mockGetSearchResults(this.query, this.limit, this.intolerancesSelected, this.dietsSelected, this.cuisinesSelected);
-        recipesList = response.data.recipes;
+        recipesList = response.data;
+
       }
       catch (error) {
         console.log(error);
