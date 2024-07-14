@@ -75,9 +75,9 @@ export default {
           this.$root.store.server_domain + "/recipes/search", {
             params: {
               recipeName: this.query,
-              cuisine: this.cuisinesSelected.join(' '),
-              diet: this.dietsSelected.join(' '),
-              intolerance: this.intolerancesSelected.join(' '),
+              cuisine: this.cuisinesSelected.join(','),
+              diet: this.dietsSelected.join(','),
+              intolerance: this.intolerancesSelected.join(','),
               number: this.limit
             }
           }
