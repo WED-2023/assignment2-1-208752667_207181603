@@ -161,7 +161,7 @@ export default {
       try {
 
         const response = await this.axios.post(
-          this.$root.store.server_domain + "/users/recipes",
+          this.$root.store.server_domain + "/users/recipes/create",
           {
           image: this.form.image,
           title: this.form.title,

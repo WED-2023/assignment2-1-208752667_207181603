@@ -25,7 +25,7 @@ export default {
             type: Number,
             required: false,
             default() {
-                return 1; // TODO CHANGE TO 3!
+                return 3;
             }
         },
         rowSizeComponent: {

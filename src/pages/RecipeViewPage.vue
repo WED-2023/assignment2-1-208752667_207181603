@@ -45,7 +45,7 @@ export default {
       inFavorites: false
     };
   },
-  async created() { // Changed from createRecipe to created lifecycle hook
+  async created() {
     await this.createRecipe();
     await this.isInFavorites();
   },

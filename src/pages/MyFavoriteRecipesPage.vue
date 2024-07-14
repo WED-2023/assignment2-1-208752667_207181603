@@ -26,7 +26,7 @@ export default {
         async getFavoriteRecipes() {
             try {
                 const response = await this.axios.get(
-                this.$root.store.server_domain + "/users/favorites");
+                this.$root.store.server_domain + "/users/favorites/all");
                 this.favoriteRecipes = response.data;
             } catch (error) {
                 this.$root.toast("Getting user favorite recipes failed", error.response.data.message, false);

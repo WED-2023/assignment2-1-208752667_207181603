@@ -12,12 +12,13 @@
       </b-button>
       <b-card-sub-title style="height: 50px;">{{ summaryTrimmed }}</b-card-sub-title>
       <template #footer>
-        <small class="text-muted">Cook time: {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
-        <img src="../assets/like.png" width="15px" alt="like">
+        <b-icon icon="clock" aria-hidden="true" class="" title="Cooking Time"></b-icon>
+        <small class="text-muted"> {{ recipe.readyInMinutes }} mins | {{ recipe.aggregateLikes }} </small>
+        <img src="../assets/like.png" width="15px" alt="like" title="Likes">
         <small class="text-muted"> | </small> 
-        <img src="../assets/gluten-free-icon.png" width="20px" alt="gluten free" v-if="recipe.glutenFree"> 
-        <img src="../assets/vegan-icon.png" width="20px" alt="vegen" v-if="recipe.vegan"> 
-        <img src="../assets/vegetarian-icon.png" width="20px" alt="vegetarian" v-if="recipe.vegetarian">
+        <img src="../assets/gluten-free-icon.png" width="20px" alt="gluten free" v-if="recipe.glutenFree" title="Gluten Free"> 
+        <img src="../assets/vegan-icon.png" width="20px" alt="vegan" v-if="recipe.vegan" title="Vegan"> 
+        <img src="../assets/vegetarian-icon.png" width="20px" alt="vegetarian" v-if="recipe.vegetarian" title="Vegetarian">
       </template>
     </b-card>
   </div>

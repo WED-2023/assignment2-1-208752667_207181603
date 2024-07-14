@@ -127,16 +127,16 @@ export default {
 
 #form-cards {
   display: flex;
-  flex-direction: row; /* Place elements in a row */
-  justify-content: center; /* Center elements horizontally */
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  gap: 1rem; /* Adds space between each select element */
+  gap: 1rem;
 }
 
 .AdvanceSearcher {
-  flex-grow: 1; /* Allow the elements to grow */
-  max-width: 100%; /* Ensure elements do not exceed the container's width */
-  width: 100%; /* Set the initial width to 100% */
+  flex-grow: 1;
+  max-width: 100%;
+  width: 100%;
 }
 
 .search-bar {
